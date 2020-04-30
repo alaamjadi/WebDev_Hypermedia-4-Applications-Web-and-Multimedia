@@ -1,14 +1,15 @@
-a:link{
-	color: white;
-}
-a:hover{
-	color: yellow;
+a:link {
+    color: white;
 }
 
-footer{
-	background-color:#484848;
-	font-size: 14px;
-	text-align: center;
+a:hover {
+    color: yellow;
+}
+
+footer {
+    background-color: #484848;
+    font-size: 14px;
+    text-align: center;
     padding-top: 20px;
     padding-bottom: 8px;
     position: relative;
@@ -19,20 +20,21 @@ footer{
     margin-top: 30px;
 }
 
-div.jumbotron{
-    margin-left:17.5%; 
+div.jumbotron {
+    margin-left: 17.5%;
     margin-right: 17.5%;
     font-family: Arial, Helvetica, sans-serif;
 }
-h1{
+
+h1 {
     font-size: 30px;
 }
-#present{
+
+#present {
     color: black;
     font-weight: bold;
-
 }
 
-#link{
-    color:blue;
+#link {
+    color: blue;
 }
