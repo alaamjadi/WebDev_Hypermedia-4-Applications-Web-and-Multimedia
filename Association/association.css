@@ -1,14 +1,15 @@
-a:link{
-	color: white;
-}
-a:hover{
-	color: yellow;
+a:link {
+    color: white;
 }
 
-footer{
-	background-color:#484848;
-	font-size: 14px;
-	text-align: center;
+a:hover {
+    color: yellow;
+}
+
+footer {
+    background-color: #484848;
+    font-size: 14px;
+    text-align: center;
     padding-top: 20px;
     padding-bottom: 8px;
     position: relative;
@@ -18,17 +19,19 @@ footer{
     width: 100%;
     margin-top: 30px;
 }
+
 /* Removing the padding and margin from top and bottom */
-html, body{
+
+html, body {
     padding: 0;
     margin: 0;
 }
 
-h1{
+h1 {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 25px;
     margin-left: 10%;
-    margin-top:2%;
+    margin-top: 2%;
     color: #b30000;
     font-style: normal;
     margin-bottom: 5%;
@@ -36,64 +39,67 @@ h1{
 }
 
 /* Top Wide Image */
-.jumbotron{
+
+.jumbotron {
     min-height: 300px;
-    background-image: url(img/wide-image-test.jpg);
+    background-image: url(img/wide-image.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
     background-attachment: scroll;
 }
 
-
 /* Breadcumb */
+
 .breadcrumb {
     background-color: black;
 }
-.breadcrumb > li {
-    color:white
+
+.breadcrumb>li {
+    color: white
 }
 
-#titlee{
+.breadcrumb-item {
+    font-weight: bold;
+}
+
+#titlee {
     margin-left: 35%;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     font-size: 20px;
 }
 
-.fontt{
+.fontt {
     vertical-align: inherit;
 }
-#colum{
+
+#colum {
     margin-right: 10%;
     margin-left: 0%;
 }
-.sub_title{
+
+.sub_title {
     vertical-align: inherit;
     margin-left: 35%;
     font-size: 12px;
     margin-right: 0px;
 }
-#redd{
+
+#redd {
     color: red;
 }
-#title1{
+
+#title1 {
     margin-left: 23%;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     font-size: 20px;
 }
-.subpic{
+
+.subpic {
     vertical-align: inherit;
     margin-left: 25%;
     font-size: 12px;
     margin-right: 0px;
 }
-
-
-
-
-
-
-
-
