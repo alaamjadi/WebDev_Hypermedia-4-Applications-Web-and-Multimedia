@@ -1,14 +1,15 @@
-a:link{
-	color: white;
-}
-a:hover{
-	color: yellow;
+a:link {
+    color: white;
 }
 
-footer{
-	background-color:#484848;
-	font-size: 14px;
-	text-align: center;
+a:hover {
+    color: yellow;
+}
+
+footer {
+    background-color: #484848;
+    font-size: 14px;
+    text-align: center;
     padding-top: 20px;
     padding-bottom: 8px;
     position: relative;
