@@ -1,14 +1,15 @@
-a:link{
-	color: white;
-}
-a:hover{
-	color: yellow;
+a:link {
+    color: white;
 }
 
-footer{
-	background-color:#484848;
-	font-size: 14px;
-	text-align: center;
+a:hover {
+    color: yellow;
+}
+
+footer {
+    background-color: #484848;
+    font-size: 14px;
+    text-align: center;
     padding-top: 20px;
     padding-bottom: 8px;
     position: relative;
@@ -18,13 +19,15 @@ footer{
     width: 100%;
     margin-top: 30px;
 }
+
 /* Removing the padding and margin from top and bottom */
-html, body{
+
+html, body {
     padding: 0;
     margin: 0;
 }
 
-h1{
+h1 {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 25px;
     margin-left: 17%;
@@ -35,38 +38,44 @@ h1{
 }
 
 /* Top Wide Image */
-.jumbotron{
+
+.jumbotron {
     min-height: 300px;
-    background-image: url(img/wide-image-test.jpg);
+    background-image: url(img/wide-image.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
     background-attachment: scroll;
 }
 
-
 /* Breadcumb */
+
 .breadcrumb {
     background-color: black;
 }
-.breadcrumb > li {
-    color:white
+
+.breadcrumb>li {
+    color: white
 }
 
-#present{
+.breadcrumb-item {
+    font-weight: bold;
+}
+
+#present {
     color: black;
     margin-left: 30%;
 }
 
-.panel-body{
+.panel-body {
     text-align: center;
 }
 
-#subt{
+#subt {
     font-size: 8px;
     text-align: center;
 }
 
-#staff{
-    color:black;
+#staff {
+    color: black;
 }
