@@ -20,7 +20,7 @@ li.nav-item {
     color: white !important;
 }
 
- .active .nav-link, .nav-link:active {
+ .active, .nav-link:active {
     background-color:#3CC200;
     color: white !important;
 }
