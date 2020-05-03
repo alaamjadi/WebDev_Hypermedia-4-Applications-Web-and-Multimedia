@@ -8,8 +8,8 @@ a:hover {
 }
 
 footer {
-    background-color: #484848;
-    font-size: 14px;
+    background-color:#484848;
+    font-size: 16px;
     text-align: center;
     padding-top: 20px;
     padding-bottom: 8px;
@@ -19,6 +19,16 @@ footer {
     right: 0;
     width: 100%;
     margin-top: 30px;
+    }
+
+
+#title{
+    font-size: 18px;
+    color: white;
+}
+
+.foot{
+    color:white;
 }
 
 /* Removing the padding and margin from top and bottom */
@@ -28,11 +38,9 @@ html, body {
     margin: 0;
 }
 
-h1 {
+.tit {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 26px;
-    margin-left: 10%;
-    margin-top: 2%;
     color: #b30000;
     font-style: normal;
     margin-bottom: 5%;
@@ -65,24 +73,14 @@ h1 {
 }
 
 .cus_title {
-    margin-left: 35%;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
-    font-size: 20px;
-}
+    font-size: 20px;}
 
-.fontt {
-    vertical-align: inherit;
-}
 
-.cus_colum {
-    margin-right: 10%;
-    margin-left: 0%;
-}
 
 .sub_title {
     vertical-align: inherit;
-    margin-left: 35%;
     font-size: 16px;
     margin-right: 0px;
 }
@@ -91,16 +89,17 @@ h1 {
     color: red;
 }
 
-#title1 {
-    margin-left: 23%;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    font-size: 20px;
-}
 
 .subpic {
     vertical-align: inherit;
-    margin-left: 25%;
     font-size: 16px;
     margin-right: 0px;
+}
+
+.picture{
+    text-align: center;
+}
+img{
+    height: 150px;
+    width: 200px;
 }
