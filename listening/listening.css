@@ -1,15 +1,84 @@
-a:link {
-    color: white;
+/* Main Menu */
+#logo {
+    width: 210px;
+    height: 65px;
+}
+.navbar {
+    position: fixed;
+    top: 0;
+    padding-bottom: 0;
+}
+.nav-item {
+    font-size: 20px;
+    font-weight: bold;
+}
+li.nav-item {
+    padding: 10px 20px;
+}
+.nav-link:hover{
+    border-radius: 5px;
+    background-color:#cd2122;
+    color: white !important;
+}
+.active, .nav-link:active {
+    border-radius: 5px;
+    background-color:#3CC200;
+    color: white !important;
 }
 
-a:hover {
-    color: yellow;
+
+/* Wide Image + Breadcrumb */
+.jumbotron{
+    min-height: 300px;
+    background-image: url(img/wide-image.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: scroll;
+    margin-top: 65px;
+}
+.breadcrumb {
+    background-color: black;
+}
+.breadcrumb > li {
+    color:white
+}
+.breadcrumb-item {
+    font-weight: bold;
 }
 
-footer {
-    background-color: #484848;
-    font-size: 14px;
-    text-align: center;
+
+/* Title + Content */
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 26px;
+    color: #b30000;
+    font-style: normal;
+    margin-bottom: 3%;
+    font-weight: bold;
+}
+h2{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    color: #3a3737;
+    font-style: normal;
+    margin-bottom: 1%;
+    font-weight: bold;
+}
+.cus_title{
+    font-weight: bold;
+    font-size: 20px;
+}
+.cus_content {
+    text-align: justify;
+}
+
+
+/* Footer */
+footer{
+	background-color:#484848;
+	font-size: 16px;
+	text-align: center;
     padding-top: 20px;
     padding-bottom: 8px;
     position: relative;
@@ -18,70 +87,15 @@ footer {
     right: 0;
     width: 100%;
     margin-top: 30px;
+    color: white;
 }
-
-
-/* Removing the padding and margin from top and bottom */
-
-html,
-body {
-    padding: 0;
-    margin: 0;
-}
-
-h1 {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 25px;
-    margin-left: 15%;
-    margin-top: 2%;
-    color: #b30000;
-    font-style: normal;
-    margin-bottom: 2%;
+#cus_email_link {
+    color: white;
     font-weight: bold;
 }
-
-
-/* Top Wide Image */
-
-.jumbotron {
-    min-height: 300px;
-    background-image: url(img/wide-image.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    background-attachment: scroll;
+#cus_email_link:hover{
+	color: yellow;
 }
-
-
-/* Breadcumb */
-
-.breadcrumb {
-    background-color: black;
-}
-
-.breadcrumb>li {
-    color: white
-}
-
-.breadcrumb-item {
-    font-weight: bold;
-}
-
-.fontt {
-    vertical-align: inherit;
-}
-
-.title1 {
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    font-size: 20px;
-}
-
-#present {
-    color: black;
-    margin-left: 17%;
-}
-
-#link {
-    color: blue;
+#footer_title{
+    font-size: 18px;
 }
