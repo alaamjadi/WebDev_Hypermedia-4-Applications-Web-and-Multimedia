@@ -1,14 +1,35 @@
-a:link {
-    color: white;
+#logo {
+    width: 210px;
+    height: 65px;
+}
+.navbar {
+    position: fixed;
+    top: 0;
+    padding-bottom: 0;
+}
+.nav-item {
+    font-size: 20px;
+    font-weight: bold;
+}
+li.nav-item {
+    padding: 10px 20px;
+}
+.nav-link:hover{
+    border-radius: 5px;
+    background-color:#cd2122;
+    color: white !important;
+}
+.active, .nav-link:active {
+    border-radius: 5px;
+    background-color:#3CC200;
+    color: white !important;
 }
 
-a:hover {
-    color: yellow;
-}
 
-footer {
+/* Footer */
+footer{
     background-color:#484848;
-    font-size: 14px;
+    font-size: 16px;
     text-align: center;
     padding-top: 20px;
     padding-bottom: 8px;
@@ -16,15 +37,19 @@ footer {
     bottom: 0;
     left: 0;
     right: 0;
+    width: 100%;
     margin-top: 30px;
-}
-#title{
-    font-size: 18px;
     color: white;
 }
-
-.foot{
-    color:white;
+#cus_email_link {
+    color: white;
+    font-weight: bold;
+}
+#cus_email_link:hover{
+    color: yellow;
+}
+#footer_title{
+    font-size: 18px;
 }
 
 /* Removing the padding and margin from top and bottom */
@@ -45,29 +70,25 @@ html, body {
 
 /* Top Wide Image */
 
-.jumbotron {
+
+.jumbotron{
     min-height: 300px;
     background-image: url(img/wide-image.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
     background-attachment: scroll;
+    margin-top: 65px;
 }
-
-/* Breadcumb */
-
 .breadcrumb {
     background-color: black;
 }
-
-.breadcrumb>li {
-    color: white
+.breadcrumb > li {
+    color:white
 }
-
 .breadcrumb-item {
     font-weight: bold;
 }
-
 
 .present {
     color: black;}
