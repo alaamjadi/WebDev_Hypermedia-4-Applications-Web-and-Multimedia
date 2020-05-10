@@ -1,3 +1,0 @@
-# HypermediaSophisticatedKids
-
-HypermediaSophisticatedKids

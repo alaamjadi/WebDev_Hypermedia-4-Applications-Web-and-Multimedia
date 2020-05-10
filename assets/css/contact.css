@@ -1,0 +1,10 @@
+/* Wide Image + Breadcrumb */
+.jumbotron{
+    min-height: 600px;
+    background-image: url(../img/contact_wide.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: scroll;
+    margin-top: 65px;
+}
