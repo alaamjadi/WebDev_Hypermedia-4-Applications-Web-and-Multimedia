@@ -107,20 +107,48 @@
 
 <!--try for buttons -->
 <div id="container">
-      <button class="btn btn-success" type="submit">All</button>
-      <button class="btn btn-success" type="submit">Januay</button>
-      <button class="btn btn-success" type="submit">February</button>
-      <button class="btn btn-success" type="submit">Mars</button>
-      <button class="btn btn-success" type="submit">April</button>
-      <button class="btn btn-success" type="submit">May</button>
-      <button class="btn btn-success" type="submit">June</button>
-      <button class="btn btn-success" type="submit">July</button>
-      <button class="btn btn-success" type="submit">August</button>
-      <button class="btn btn-success" type="submit">September</button>
-      <button class="btn btn-success" type="submit">Octobre</button>
-      <button class="btn btn-success" type="submit">November</button>
-      <button class="btn btn-success" type="submit">December</button>
+  <button class="btn btn-success" type="submit">All</button>
+  <button class="btn btn-success" type="submit" onclick="jan()">Januay</button>
+  <button class="btn btn-success" type="submit" onclick="feb()">February</button>
+  <button class="btn btn-success" type="submit">Mars</button>
+  <button class="btn btn-success" type="submit">April</button>
+  <button class="btn btn-success" type="submit">May</button>
+  <button class="btn btn-success" type="submit">June</button>
+  <button class="btn btn-success" type="submit">July</button>
+  <button class="btn btn-success" type="submit">August</button>
+  <button class="btn btn-success" type="submit">September</button>
+  <button class="btn btn-success" type="submit">Octobre</button>
+  <button class="btn btn-success" type="submit">November</button>
+  <button class="btn btn-success" type="submit">December</button>
 </div>
+<!-- javascript code-->
+<script>
+
+
+function jan() {
+  var x = document.getElementById("try1");
+  var y = document.getElementById("try2");
+  
+  if (x.style.display === "none" && y.style.display==="none") {
+    x.style.display = "block";
+    y.style.display = "block";
+  } else {
+    x.style.display = "none";
+    y.style.display = "none";
+  }
+}
+
+function feb(){
+    var x = document.getElementById("try1");
+  var y = document.getElementById("try2");
+
+  if (x.style.display === "none" && y.style.display==="none") {
+    x.style.display = "block";
+    y.style.display = "block";
+  } 
+}
+</script>
+<!-- end of javascript code-->
 <!-- end of try-->
         <br>
         <br>
