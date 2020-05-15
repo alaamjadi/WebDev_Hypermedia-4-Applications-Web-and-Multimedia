@@ -112,3 +112,9 @@ footer{
 #footer_title{
     font-size: 18px;
 }
+
+
+/**carousel link */
+a {
+  color: white;
+}
