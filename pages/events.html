@@ -106,47 +106,70 @@
              
 
 <!--try for buttons -->
-<div id="container">
-  <button class="btn btn-success" type="submit">All</button>
-  <button class="btn btn-success" type="submit" onclick="jan()">Januay</button>
-  <button class="btn btn-success" type="submit" onclick="feb()">February</button>
-  <button class="btn btn-success" type="submit">Mars</button>
-  <button class="btn btn-success" type="submit">April</button>
-  <button class="btn btn-success" type="submit">May</button>
-  <button class="btn btn-success" type="submit">June</button>
-  <button class="btn btn-success" type="submit">July</button>
-  <button class="btn btn-success" type="submit">August</button>
-  <button class="btn btn-success" type="submit">September</button>
-  <button class="btn btn-success" type="submit">Octobre</button>
-  <button class="btn btn-success" type="submit">November</button>
-  <button class="btn btn-success" type="submit">December</button>
-</div>
+
+  <div id="container">
+    <button class="btn btn-success" type="submit">All</button>
+    <button class="btn btn-success" type="submit" onclick="showevents(2020,1)">Januay</button>
+    <button class="btn btn-success" type="submit" onclick="showevents(2020,2)">February</button>
+    <button class="btn btn-success" type="submit" onclick="showevents(2020,3)">Mars</button>
+    <button class="btn btn-success" type="submit" onclick="showevents(2020,4)">April</button>
+    <button class="btn btn-success" type="submit" onclick="showevents(2020,5)">May</button>
+    <button class="btn btn-success" type="submit" onclick="showevents(2020,6)">June</button>
+    <button class="btn btn-success" type="submit" onclick="showevents(2020,7)">July</button>
+    <button class="btn btn-success" type="submit" onclick="showevents(2020,8)">August</button>
+    <button class="btn btn-success" type="submit" onclick="showevents(2020,9)">September</button>
+    <button class="btn btn-success" type="submit" onclick="showevents(2020,10)">Octobre</button>
+    <button class="btn btn-success" type="submit" onclick="showevents(2020,11)">November</button>
+    <button class="btn btn-success" type="submit" onclick="showevents(2020,12)">December</button>
+  </div>
 <!-- javascript code-->
 <script>
 
+function createEventCard(evt){
+        let cardElement=
+        `
+        <div class="col-12 col-md-6 col-sm-4 col-xs-6 col-lg-4">
+        
+        <div class="card">
+            <img class="card-img-top" src="../assets/img/events_post-corso-assistenti.jpg" alt="Card image cap">
+            <div class="card-body">
+                <p class="card-text"></p>
+                <h5 class="card-title">${evt.title}</h5>
+                    <p class="text-muted">February 24</p>
+                    Tuesday 1st October (10.00 am) the new autumn socializing workshop organized by the Lu.VI Onlus Foundation will be presented. An appointment that over time has found more and more interest and that for this reason this fourth 2019 edition had to be divided into two separate Laboratories: Tuesday and Wednesday laboratories in order to be able to accept all the applications received.
+                </p>
+                <p class="text-info">Organiser : <a href="#" class="text-dark">Bruno Andreoni</a></p>
+                <p class="text-info">Service : <a href="#" class="text-dark">Listening center</a></p> 
+            </div>
+        </div>
+        `
+        return cardElement
+    }
 
-function jan() {
-  var x = document.getElementById("try1");
-  var y = document.getElementById("try2");
-  
-  if (x.style.display === "none" && y.style.display==="none") {
-    x.style.display = "block";
-    y.style.display = "block";
-  } else {
-    x.style.display = "none";
-    y.style.display = "none";
-  }
-}
+    function rendersevent(eventlist){
+      let container=document.getElementById('Events')
+      container.innerHTML = ''  // clean the container
 
-function feb(){
-    var x = document.getElementById("try1");
-  var y = document.getElementById("try2");
+      let htmloutput = ''
 
-  if (x.style.display === "none" && y.style.display==="none") {
-    x.style.display = "block";
-    y.style.display = "block";
-  } 
-}
+      for (evt in eventlist){ // list from the 
+        let cardElement =createEventCard(evt)
+        htmloutput +=cardElement
+      }
+      container.innerHTML=htmloutput
+    }
+
+
+    function showevents(year,month) {
+//call the database and get the januarry content
+//show the content inside the container y
+
+      let eventlist = [1] //try with [1 ,2 ,3] and you will see the difference
+      rendersevent(eventlist)
+
+    }
+
+
 </script>
 <!-- end of javascript code-->
 <!-- end of try-->
@@ -154,76 +177,10 @@ function feb(){
         <br>
 
         <div id="Events"> 
-           
-                <div class="row">
-                    <div class="col-12 col-md-6 col-sm-4 col-xs-6 col-lg-4">
-                     
-                        <div class="card">
-                            <img class="card-img-top" src="../assets/img/events_lab-autunnale.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <p class="card-text"></p>
-                                <h5 class="card-title">The autumn socializing workshop is underway</h5>
-                                    <p class="text-muted">February 24</p>
-                                    Tuesday 1st October (10.00 am) the new autumn socializing workshop organized by the Lu.VI Onlus Foundation will be presented. An appointment that over time has found more and more interest and that for this reason this fourth 2019 edition had to be divided into two separate Laboratories: Tuesday and Wednesday laboratories in order to be able to accept all the applications received.
-                                </p>
-                                <p class="text-info">Organiser : <a href="#" class="text-dark">Bruno Andreoni</a></p>
-                                <p class="text-info">Service : <a href="#" class="text-dark">Listening center</a></p>
-                            </div>
-                          </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-sm-4 col-xs-6 col-lg-4">
-                        
-                        <div class="card" >
-                            <img class="card-img-top" src="../assets/img/events_post-plenariaUO.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <p class="card-text"></p>
-                                    <h5 class="card-title">Plenary meeting OU Program Hospital Territory</h5>                               
-                                    <p class="text-muted">April 20</p>
-                                    On Thursday 3 October (10.00 in Cascina Brandezzata) a meeting of all the OUs adhering to the Territorial Hospital Program for continuity of care in the local social and health network (List of currently adhering OUs) is convened, with the following agenda: Approval of draft minutes of meeting 29.5 Update of member OU list with Legal Officers and Referrals The new member OUs.
-                                </p>
-                                <p class="text-info">Organiser : <a href="#" class="text-dark">Arrigio Andreoni</a></p>
-                                <p class="text-info">Service : <a href="#" class="text-dark">Hospice</a></p> 
-                              </div>
-                            
-                            
-                          </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-sm-4 col-xs-6 col-lg-4">
-                        
-                        <div class="card">
-                            <img class="card-img-top" src="../assets/img/events_post-corso-assistenti.jpg" alt="Card image cap">
-                            <div class="card-body">
-                              <p class="card-text">
-                                <h5 class="card-title">MilCare Foundation celebrates its 20th birthday</h5>
-                                <p class="text-muted">April 24</p>
-                                Milcare Fondation 30.06.1999 - 30.06.2019 The significant stages of the Cascina Brandezzata project The project was developed in 1998 by a working group coordinated by Vittorio Ventafridda, who met at the European Institute of Oncology. On June 30, 1999, the Lu.VI Onlus Foundation was born; in the articles of association there are 24 experts in palliative care including Vittorio Ventafridda.
-                              </p>
-                              <p class="text-info">Organiser : <a href="#" class="text-dark">Luca Andreoni</a></p>
-                              <p class="text-info">Service : <a href="#" class="text-dark">Listening center</a></p> 
-                            </div>
-                          </div>
-                    </div>
-                    
-                    <div class="col-12 col-md-6 col-sm-4 col-xs-6 col-lg-4">
-                        <br>
-                        <div class="card">
-                            <img class="card-img-top" src="../assets/img/events_post-lab-primavera.jpg" alt="Card image cap">
-                            <div class="card-body">
-                              <p class="card-text">
-                                <h5 class="card-title">Spring Workshop Festival of Cascina Brandezzata</h5> 
-                                <p class="text-muted">July 22</p>
-                                The Laboratories that have been held in Cascina Brandezzata for more than two years now represent an important moment for the elderly and fragile people who live in the South Area of ​​Milan, are an opportunity to share some days with other people who have the same problems, accompanied.
-                              </p>
-                              <p class="text-info">Organiser : <a href="#" class="text-dark">Burno Andreoni</a></p>
-                              <p class="text-info">Service : <a href="#" class="text-dark">Listening center</a></p> 
-                            </div>
-                          </div>
-                    </div>
-                  </div>
     
             
         </div>
-    </div>
+
     <br>
     <br>
     <br>
