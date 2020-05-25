@@ -24,3 +24,10 @@
     6. db.sql >> line 22, remove staff_id key since we have it in Involve/Has table and it would be redundant.
     7. db.sql >> line 28, change "Involve/Has" to "Involve" since "/" character is not an acceptable character.
     8. db.sql >> Try it on development environment to see if it works!
+    
+#### 2020-05-25 @j.aysa says:
+
+    6. db.sql >> line 22, remove staff_id key since we have it in Involve/Has table and it would be redundant.-->done
+    7. db.sql >> line 28, change "Involve/Has" to "Involve" since "/" character is not an acceptable character. --> done
+    8. db.sql >> Try it on development environment to see if it works! --> worked
+    also I've changed the staff entity by deleting the event id
