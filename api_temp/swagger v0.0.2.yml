@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  version: '1.0.0'
+  version: '0.0.2'
   title: Milcare Foundations Onlus API
   description: This is an open API for Milcare Foundations Onlus website developed by Sophisticated Kids team
   termsOfService: All the material on the website is for educational purpose only, any commercial use is prohibited.
