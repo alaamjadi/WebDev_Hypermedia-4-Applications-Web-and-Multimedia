@@ -1,0 +1,441 @@
+swagger: "2.0"
+info:
+  description: "This is an open API for Milcare Foundations Onlus website developed\
+    \ by Sophisticated Kids team"
+  version: "1.0.2"
+  title: "MilCare Foundation Onlus API"
+  termsOfService: "All the material on the website is for educational purpose only,\
+    \ any commercial use is prohibited."
+  contact:
+    name: "Sophisticated Kids"
+    url: "https://gitlab.com/alaamjadi/HSK"
+  license:
+    name: "MIT"
+    url: "http://opensource.org/licenses/MIT"
+host: "sophisticatedkids.herokuapp.com"
+basePath: "/api"
+tags:
+- name: "Service"
+  description: "Services of the association"
+- name: "Event"
+  description: "Events of the association"
+- name: "Person"
+  description: "Members of the association"
+schemes:
+- "https"
+- "http"
+produces:
+- "application/json"
+paths:
+  /Events:
+    get:
+      tags:
+      - "Event"
+      summary: "List of all the events of the association"
+      operationId: "eventsGET"
+      parameters: []
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Event"
+        "400":
+          description: "Unexpected error"
+      x-swagger-router-controller: "Event"
+  /Events/Month/{Month}:
+    get:
+      tags:
+      - "Event"
+      summary: "List of events of a month"
+      operationId: "eventMonthGET"
+      parameters:
+      - name: "Month"
+        in: "path"
+        description: "Number of the month of the events for filtering"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Event"
+        "400":
+          description: "Unexpected error"
+        "404":
+          description: "Invalid month"
+      x-swagger-router-controller: "Event"
+  /Events/{CodeEvent}:
+    get:
+      tags:
+      - "Event"
+      summary: "Find an event with the event code"
+      operationId: "eventCodeGET"
+      parameters:
+      - name: "CodeEvent"
+        in: "path"
+        description: "Code of the event that we want"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Event"
+        "400":
+          description: "Unexpected error"
+        "404":
+          description: "Invalid id"
+      x-swagger-router-controller: "Event"
+  /Events/{CodeEvent}/Services:
+    get:
+      tags:
+      - "Event"
+      summary: "List of all services of an event"
+      operationId: "eventsCodeServicesGET"
+      parameters:
+      - name: "CodeEvent"
+        in: "path"
+        description: "Code of an event that we want the related services"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Service"
+        "400":
+          description: "Unexpected error"
+        "404":
+          description: "invalid Code"
+      x-swagger-router-controller: "Event"
+  /Events/{CodeEvent}/People:
+    get:
+      tags:
+      - "Event"
+      summary: "List of all persons of an event"
+      operationId: "eventsCodePersonGET"
+      parameters:
+      - name: "CodeEvent"
+        in: "path"
+        description: "Code of an event that we want the related persons"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Person"
+        "400":
+          description: "Unexpected error"
+        "404":
+          description: "invalid Code"
+      x-swagger-router-controller: "Event"
+  /People:
+    get:
+      tags:
+      - "Person"
+      summary: "List of all the persons of the association"
+      operationId: "peopleGET"
+      parameters: []
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Person"
+        "400":
+          description: "Unexpected error"
+      x-swagger-router-controller: "Person"
+  /People/{CodePerson}:
+    get:
+      tags:
+      - "Person"
+      summary: "Find a person with the person code"
+      operationId: "personCodeGET"
+      parameters:
+      - name: "CodePerson"
+        in: "path"
+        description: "Code of a person that we want"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Person"
+        "400":
+          description: "Unexpected error"
+        "404":
+          description: "invalid CodePerson"
+      x-swagger-router-controller: "Person"
+  /People/{CodePerson}/Services:
+    get:
+      tags:
+      - "Person"
+      summary: "List of all services of a person"
+      operationId: "personCodeServicesGET"
+      parameters:
+      - name: "CodePerson"
+        in: "path"
+        description: "Code of a person that we want the related services"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Service"
+        "400":
+          description: "Unexpected error"
+        "404":
+          description: "invalid person code"
+      x-swagger-router-controller: "Person"
+  /People/{CodePerson}/Events:
+    get:
+      tags:
+      - "Person"
+      summary: "List of all events of a person"
+      operationId: "personCodeEventsGET"
+      parameters:
+      - name: "CodePerson"
+        in: "path"
+        description: "Code of a person that we want the related events"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Event"
+        "400":
+          description: "Unexpected error"
+        "404":
+          description: "invalid person code"
+      x-swagger-router-controller: "Person"
+  /Services:
+    get:
+      tags:
+      - "Service"
+      summary: "List of all the services of the association"
+      operationId: "servicesGET"
+      parameters: []
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Service"
+        "400":
+          description: "Unexpected error"
+      x-swagger-router-controller: "Service"
+  /Services/{Name}:
+    get:
+      tags:
+      - "Service"
+      summary: "Find a service with the service name"
+      operationId: "serviceNameGET"
+      parameters:
+      - name: "Name"
+        in: "path"
+        description: "Name of a service that we want"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "operation was successful"
+          schema:
+            $ref: "#/definitions/Service"
+        "400":
+          description: "Unexpected error"
+        "404":
+          description: "invalid Name"
+      x-swagger-router-controller: "Service"
+  /Services/{Name}/Events:
+    get:
+      tags:
+      - "Service"
+      summary: "List of all events of a service"
+      operationId: "servicesNameEventGET"
+      parameters:
+      - name: "Name"
+        in: "path"
+        description: "Name of a service that we want the related events"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Event"
+        "400":
+          description: "Unexpected error"
+        "404":
+          description: "invalid Name"
+      x-swagger-router-controller: "Service"
+  /Services/{Name}/People:
+    get:
+      tags:
+      - "Service"
+      summary: "List of all persons of a service"
+      operationId: "servicesNamePeopleGET"
+      parameters:
+      - name: "Name"
+        in: "path"
+        description: "Name of a service that we want the related persons"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Person"
+        "400":
+          description: "Unexpected error"
+        "404":
+          description: "invalid Name"
+      x-swagger-router-controller: "Service"
+definitions:
+  Event:
+    type: "object"
+    required:
+    - "CodeEvent"
+    - "Name"
+    - "Date"
+    - "Location"
+    - "ShortDescription"
+    - "LongDescription"
+    - "Images"
+    properties:
+      CodeEvent:
+        type: "integer"
+        format: "int64"
+      Name:
+        type: "string"
+      Date:
+        type: "string"
+        format: "date-time"
+      Location:
+        type: "string"
+      ShortDescription:
+        type: "string"
+      LongDescription:
+        type: "string"
+      Images:
+        type: "array"
+        items:
+          $ref: "#/definitions/Image"
+    title: "Event"
+    xml:
+      name: "Event"
+    description: "An event presented by the association"
+    example:
+      CodeEvent: 1
+      Name: "Presentation of service X"
+      Date: "2020-05-25T17:00:00"
+      Location: "Milan"
+      ShortDescription: "Short description of the event"
+      LongDescription: "Long description of the event"
+      Images:
+      - "Image1"
+      - "Image2"
+      - "Image3"
+      - "Image4"
+  Person:
+    type: "object"
+    required:
+    - "CodePerson"
+    - "Name"
+    - "Role"
+    - "Description"
+    - "Images"
+    properties:
+      CodePerson:
+        type: "string"
+      Name:
+        type: "string"
+      Role:
+        type: "string"
+      Description:
+        type: "string"
+      Images:
+        type: "array"
+        items:
+          $ref: "#/definitions/Image"
+    title: "Person"
+    xml:
+      name: "Person"
+    description: "Person X"
+    example:
+      CodePerson: "FistName-LastName"
+      Name: "FistName LastName"
+      Role: "Volunteer"
+      Description: "Biography"
+      Images:
+      - "Image1"
+  Service:
+    type: "object"
+    required:
+    - "Name"
+    - "ShortDescription"
+    - "LongDescription"
+    - "Images"
+    properties:
+      Name:
+        type: "string"
+      ShortDescription:
+        type: "string"
+      LongDescription:
+        type: "string"
+      Images:
+        type: "array"
+        items:
+          $ref: "#/definitions/Image"
+    title: "Service"
+    xml:
+      name: "Service"
+    description: "A service offered by the association"
+    example:
+      Name: "Hospice"
+      ShortDescription: "short description of the service"
+      LongDescription: "Long description of the service"
+      Images:
+      - "Image1"
+      - "Image2"
+      - "Image3"
+      - "Image4"
+      - "Image4"
+      - "Image5"
+      - "Image6"
+  Image:
+    type: "object"
+    required:
+    - "Image1"
+    properties:
+      Image1:
+        type: "string"
+    title: "Image"
+    xml:
+      name: "Image"
+    description: "ImageName.Extention"
+    example:
+      Image1: "Picture1.jpg"
