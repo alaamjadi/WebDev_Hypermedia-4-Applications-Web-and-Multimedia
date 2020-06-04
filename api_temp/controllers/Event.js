@@ -3,9 +3,9 @@
 var utils = require('../utils/writer.js');
 var Event = require('../service/EventService');
 
-module.exports.eventCodeGET = function eventCodeGET (req, res, next) {
+module.exports.eventsCodeEventGET = function eventsCodeEventGET (req, res, next) {
   var codeEvent = req.swagger.params['CodeEvent'].value;
-  Event.eventCodeGET(codeEvent)
+  Event.eventsCodeEventGET(codeEvent)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -14,9 +14,9 @@ module.exports.eventCodeGET = function eventCodeGET (req, res, next) {
     });
 };
 
-module.exports.eventMonthGET = function eventMonthGET (req, res, next) {
-  var month = req.swagger.params['Month'].value;
-  Event.eventMonthGET(month)
+module.exports.eventsCodeEventPeopleGET = function eventsCodeEventPeopleGET (req, res, next) {
+  var codeEvent = req.swagger.params['CodeEvent'].value;
+  Event.eventsCodeEventPeopleGET(codeEvent)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -25,20 +25,9 @@ module.exports.eventMonthGET = function eventMonthGET (req, res, next) {
     });
 };
 
-module.exports.eventsCodePersonGET = function eventsCodePersonGET (req, res, next) {
+module.exports.eventsCodeEventServicesGET = function eventsCodeEventServicesGET (req, res, next) {
   var codeEvent = req.swagger.params['CodeEvent'].value;
-  Event.eventsCodePersonGET(codeEvent)
-    .then(function (response) {
-      utils.writeJson(res, response);
-    })
-    .catch(function (response) {
-      utils.writeJson(res, response);
-    });
-};
-
-module.exports.eventsCodeServicesGET = function eventsCodeServicesGET (req, res, next) {
-  var codeEvent = req.swagger.params['CodeEvent'].value;
-  Event.eventsCodeServicesGET(codeEvent)
+  Event.eventsCodeEventServicesGET(codeEvent)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -49,6 +38,17 @@ module.exports.eventsCodeServicesGET = function eventsCodeServicesGET (req, res,
 
 module.exports.eventsGET = function eventsGET (req, res, next) {
   Event.eventsGET()
+    .then(function (response) {
+      utils.writeJson(res, response);
+    })
+    .catch(function (response) {
+      utils.writeJson(res, response);
+    });
+};
+
+module.exports.eventsMonthGET = function eventsMonthGET (req, res, next) {
+  var month = req.swagger.params['Month'].value;
+  Event.eventsMonthGET(month)
     .then(function (response) {
       utils.writeJson(res, response);
     })

@@ -10,7 +10,8 @@ var jsyaml = require("js-yaml");
 var serverPort = process.env.PORT || 8080;
 
 let serveStatic = require("serve-static");
-let { setupDataLayer} = require("./service/DataLayer");
+
+let { setupDataLayer } = require("./service/DataLayer");
 
 // swaggerRouter configuration
 var options = {
@@ -40,16 +41,17 @@ swaggerTools.initializeMiddleware(swaggerDoc, function (middleware) {
   app.use(serveStatic(__dirname + "/public"));
 
   // Start the server
-  /* setupDataLayer().then( () => {The whole below function }); */
-  http.createServer(app).listen(serverPort, function () {
-    console.log(
-      "Your server is listening on port %d (http://localhost:%d)",
-      serverPort,
-      serverPort
-    );
-    console.log(
-      "Swagger-ui is available on http://localhost:%d/docs",
-      serverPort
-    );
+  setupDataLayer().then(() => {
+    http.createServer(app).listen(serverPort, function () {
+      console.log(
+        "Your server is listening on port %d (http://localhost:%d)",
+        serverPort,
+        serverPort
+      );
+      console.log(
+        "Swagger-ui is available on http://localhost:%d/docs",
+        serverPort
+      );
+    });
   });
 });

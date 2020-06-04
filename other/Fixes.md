@@ -36,4 +36,4 @@
 ### 2020-06-04 @mohammad says:
 
     7. db.sql >> Rmove the static information from DB and add them into HTML. "Organizer:", "Presented in:", "Contact for:" and "Involved in:".
-
+    8. db.sql >> We may need to change also the arrays for short and long descriptions in database.
