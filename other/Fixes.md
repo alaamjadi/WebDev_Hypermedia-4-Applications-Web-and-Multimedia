@@ -31,3 +31,9 @@
     7. db.sql >> line 28, change "Involve/Has" to "Involve" since "/" character is not an acceptable character. --> done
     8. db.sql >> Try it on development environment to see if it works! --> worked
     also I've changed the staff entity by deleting the event id
+
+
+### 2020-06-04 @mohammad says:
+
+    7. db.sql >> Rmove the static information from DB and add them into HTML. "Organizer:", "Presented in:", "Contact for:" and "Involved in:".
+

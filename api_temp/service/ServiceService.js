@@ -1,5 +1,7 @@
 'use strict';
 
+let sqlDb;
+
 
 /**
  * Find a service with the service name
@@ -13,7 +15,8 @@ exports.serviceNameGET = function(name) {
     examples['application/json'] = {
   "Name" : "Hospice",
   "ShortDescription" : "short description of the service",
-  "DetailedDescription" : "detailed description of the service"
+  "DetailedDescription" : "detailed description of the service",
+  "Images" : [ "Image1", "Image2", "Image3", "Image4", "Image4", "Image5", "Image6", "Image7", "Image8", "Image9" ]
 };
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
@@ -35,11 +38,13 @@ exports.servicesGET = function() {
     examples['application/json'] = [ {
   "Name" : "Hospice",
   "ShortDescription" : "short description of the service",
-  "DetailedDescription" : "detailed description of the service"
+  "DetailedDescription" : "detailed description of the service",
+  "Images" : [ "Image1", "Image2", "Image3", "Image4", "Image4", "Image5", "Image6", "Image7", "Image8", "Image9" ]
 }, {
   "Name" : "Hospice",
   "ShortDescription" : "short description of the service",
-  "DetailedDescription" : "detailed description of the service"
+  "DetailedDescription" : "detailed description of the service",
+  "Images" : [ "Image1", "Image2", "Image3", "Image4", "Image4", "Image5", "Image6", "Image7", "Image8", "Image9" ]
 } ];
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
@@ -62,19 +67,19 @@ exports.servicesNameEventGET = function(name) {
     examples['application/json'] = [ {
   "CodeEvent" : 1,
   "Name" : "Presentation of service X",
-  "Date" : "2020-05-25",
+  "Date" : "2020-05-25T17:00:00",
   "location" : "Milan",
   "ShortDescription" : "Short description of the event",
   "DetailedDescription" : "Detailed description of the event",
-  "Images" : [ ]
+  "Images" : [ "Image1", "Image2", "Image3", "Image4", "Image4", "Image5", "Image6", "Image7", "Image8", "Image9" ]
 }, {
   "CodeEvent" : 1,
   "Name" : "Presentation of service X",
-  "Date" : "2020-05-25",
+  "Date" : "2020-05-25T17:00:00",
   "location" : "Milan",
   "ShortDescription" : "Short description of the event",
   "DetailedDescription" : "Detailed description of the event",
-  "Images" : [ ]
+  "Images" : [ "Image1", "Image2", "Image3", "Image4", "Image4", "Image5", "Image6", "Image7", "Image8", "Image9" ]
 } ];
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
@@ -96,16 +101,16 @@ exports.servicesNamePeopleGET = function(name) {
     var examples = {};
     examples['application/json'] = [ {
   "CodePerson" : "Name-Family",
-  "FName" : "Name",
-  "LName" : "Family",
+  "Name" : "FName LName",
   "Role" : "Volunteer",
-  "Description" : "Biography"
+  "Description" : "Biography",
+  "Images" : [ "Image1", "Image2", "Image3", "Image4", "Image4", "Image5", "Image6", "Image7", "Image8", "Image9" ]
 }, {
   "CodePerson" : "Name-Family",
-  "FName" : "Name",
-  "LName" : "Family",
+  "Name" : "FName LName",
   "Role" : "Volunteer",
-  "Description" : "Biography"
+  "Description" : "Biography",
+  "Images" : [ "Image1", "Image2", "Image3", "Image4", "Image4", "Image5", "Image6", "Image7", "Image8", "Image9" ]
 } ];
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);

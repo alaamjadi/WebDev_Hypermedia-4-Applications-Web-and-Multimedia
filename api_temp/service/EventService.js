@@ -1,5 +1,27 @@
 'use strict';
 
+let sqlDb;
+
+exports.eventsDbSetup = function(database) {
+  sqlDb = database;
+  console.log("Checking if events table exists");
+  return database.schema.hasTable("events").then(exists => {
+    if (!exists) {
+      console.log("It doesn't so we create it");
+      return database.schema.createTable("events", table => {
+        table.increments();
+        table.float("CodeEvent");
+        table.text("Name");
+        table.text("Date");
+        table.text("location");
+        table.text("ShortDescription");
+        table.text("DetailedDescription");
+        table.string("Event1.jpg");
+        table.string("Event2.jpg")
+      });
+    }
+  });
+};
 
 /**
  * Find an event with the event code
@@ -8,24 +30,14 @@
  * returns Event
  **/
 exports.eventCodeGET = function(codeEvent) {
-  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = {
-  "CodeEvent" : 1,
-  "Name" : "Presentation of service X",
-  "Date" : "2020-05-25",
-  "location" : "Milan",
-  "ShortDescription" : "Short description of the event",
-  "DetailedDescription" : "Detailed description of the event",
-  "Images" : [ ]
-};
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
+  return sqlDb("events")
+  .codeEvent(codeEvent)
+  .then(data => {
+    return data.map(e => {
+      return e;
+    });
   });
-}
+};
 
 
 /**
@@ -40,19 +52,19 @@ exports.eventMonthGET = function(month) {
     examples['application/json'] = [ {
   "CodeEvent" : 1,
   "Name" : "Presentation of service X",
-  "Date" : "2020-05-25",
+  "Date" : "2020-05-25T17:00:00",
   "location" : "Milan",
   "ShortDescription" : "Short description of the event",
   "DetailedDescription" : "Detailed description of the event",
-  "Images" : [ ]
+  "Images" : [ "Image1", "Image2", "Image3", "Image4", "Image4", "Image5", "Image6", "Image7", "Image8", "Image9" ]
 }, {
   "CodeEvent" : 1,
   "Name" : "Presentation of service X",
-  "Date" : "2020-05-25",
+  "Date" : "2020-05-25T17:00:00",
   "location" : "Milan",
   "ShortDescription" : "Short description of the event",
   "DetailedDescription" : "Detailed description of the event",
-  "Images" : [ ]
+  "Images" : [ "Image1", "Image2", "Image3", "Image4", "Image4", "Image5", "Image6", "Image7", "Image8", "Image9" ]
 } ];
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
@@ -74,10 +86,10 @@ exports.eventsCodePersonGET = function(codeEvent) {
     var examples = {};
     examples['application/json'] = {
   "CodePerson" : "Name-Family",
-  "FName" : "Name",
-  "LName" : "Family",
+  "Name" : "FName LName",
   "Role" : "Volunteer",
-  "Description" : "Biography"
+  "Description" : "Biography",
+  "Images" : [ "Image1", "Image2", "Image3", "Image4", "Image4", "Image5", "Image6", "Image7", "Image8", "Image9" ]
 };
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
@@ -100,11 +112,13 @@ exports.eventsCodeServicesGET = function(codeEvent) {
     examples['application/json'] = [ {
   "Name" : "Hospice",
   "ShortDescription" : "short description of the service",
-  "DetailedDescription" : "detailed description of the service"
+  "DetailedDescription" : "detailed description of the service",
+  "Images" : [ "Image1", "Image2", "Image3", "Image4", "Image4", "Image5", "Image6", "Image7", "Image8", "Image9" ]
 }, {
   "Name" : "Hospice",
   "ShortDescription" : "short description of the service",
-  "DetailedDescription" : "detailed description of the service"
+  "DetailedDescription" : "detailed description of the service",
+  "Images" : [ "Image1", "Image2", "Image3", "Image4", "Image4", "Image5", "Image6", "Image7", "Image8", "Image9" ]
 } ];
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
@@ -126,19 +140,19 @@ exports.eventsGET = function() {
     examples['application/json'] = [ {
   "CodeEvent" : 1,
   "Name" : "Presentation of service X",
-  "Date" : "2020-05-25",
+  "Date" : "2020-05-25T17:00:00",
   "location" : "Milan",
   "ShortDescription" : "Short description of the event",
   "DetailedDescription" : "Detailed description of the event",
-  "Images" : [ ]
+  "Images" : [ "Image1", "Image2", "Image3", "Image4", "Image4", "Image5", "Image6", "Image7", "Image8", "Image9" ]
 }, {
   "CodeEvent" : 1,
   "Name" : "Presentation of service X",
-  "Date" : "2020-05-25",
+  "Date" : "2020-05-25T17:00:00",
   "location" : "Milan",
   "ShortDescription" : "Short description of the event",
   "DetailedDescription" : "Detailed description of the event",
-  "Images" : [ ]
+  "Images" : [ "Image1", "Image2", "Image3", "Image4", "Image4", "Image5", "Image6", "Image7", "Image8", "Image9" ]
 } ];
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);

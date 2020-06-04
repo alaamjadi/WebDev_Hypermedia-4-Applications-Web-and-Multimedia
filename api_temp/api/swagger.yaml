@@ -1,22 +1,20 @@
+---
 swagger: "2.0"
 info:
-  version: "1.0.1"
+  description: "This is an open API for Milcare Foundations Onlus website developed\
+    \ by Sophisticated Kids team"
+  version: "1.0.2"
   title: "MilCare Foundation Onlus API"
-  description: "This is an open API for Milcare Foundations Onlus website developed by Sophisticated Kids team"
-  termsOfService: "All the material on the website is for educational purpose only, any commercial use is prohibited."
+  termsOfService: "All the material on the website is for educational purpose only,\
+    \ any commercial use is prohibited."
   contact:
-    name: Sophisticated Kids
-    url:  "https://gitlab.com/alaamjadi/HSK"
+    name: "Sophisticated Kids"
+    url: "https://gitlab.com/alaamjadi/HSK"
   license:
     name: "MIT"
     url: "http://opensource.org/licenses/MIT"
 host: "sophisticatedkids.herokuapp.com"
-schemes:
-- "https"
-- "http"
 basePath: "/api"
-produces:
-  - application/json
 tags:
 - name: "Service"
   description: "Services of the association"
@@ -24,7 +22,11 @@ tags:
   description: "Events of the association"
 - name: "Person"
   description: "Members of the association"
-
+schemes:
+- "https"
+- "http"
+produces:
+- "application/json"
 paths:
   /Events:
     get:
@@ -315,16 +317,15 @@ paths:
       x-swagger-router-controller: "Service"
 definitions:
   Event:
-    title: "Event"
     type: "object"
     required:
     - "CodeEvent"
-    - "Name"
     - "Date"
-    - "location"
-    - "ShortDescription"
     - "DetailedDescription"
     - "Images"
+    - "Name"
+    - "ShortDescription"
+    - "location"
     properties:
       CodeEvent:
         type: "integer"
@@ -344,6 +345,7 @@ definitions:
         type: "array"
         items:
           $ref: "#/definitions/Image"
+    title: "Event"
     xml:
       name: "Event"
     description: "An event presented by the association"
@@ -354,16 +356,25 @@ definitions:
       location: "Milan"
       ShortDescription: "Short description of the event"
       DetailedDescription: "Detailed description of the event"
-      Images: "Image.jpg"
+      Images:
+      - "Image1"
+      - "Image2"
+      - "Image3"
+      - "Image4"
+      - "Image4"
+      - "Image5"
+      - "Image6"
+      - "Image7"
+      - "Image8"
+      - "Image9"
   Person:
-    title: "Person"
     type: "object"
     required:
     - "CodePerson"
-    - "Name"
-    - "Role"
     - "Description"
     - "Images"
+    - "Name"
+    - "Role"
     properties:
       CodePerson:
         type: "string"
@@ -377,6 +388,7 @@ definitions:
         type: "array"
         items:
           $ref: "#/definitions/Image"
+    title: "Person"
     xml:
       name: "Person"
     description: "Person X"
@@ -385,15 +397,24 @@ definitions:
       Name: "FName LName"
       Role: "Volunteer"
       Description: "Biography"
-      Images: "Name-Family.jpg"
+      Images:
+      - "Image1"
+      - "Image2"
+      - "Image3"
+      - "Image4"
+      - "Image4"
+      - "Image5"
+      - "Image6"
+      - "Image7"
+      - "Image8"
+      - "Image9"
   Service:
-    title: "Service"
     type: "object"
     required:
-    - "Name"
-    - "ShortDescription"
     - "DetailedDescription"
     - "Images"
+    - "Name"
+    - "ShortDescription"
     properties:
       Name:
         type: "string"
@@ -405,6 +426,7 @@ definitions:
         type: "array"
         items:
           $ref: "#/definitions/Image"
+    title: "Service"
     xml:
       name: "Service"
     description: "A service offered by the association"
@@ -412,9 +434,18 @@ definitions:
       Name: "Hospice"
       ShortDescription: "short description of the service"
       DetailedDescription: "detailed description of the service"
-      Images: "Hospice.jpg"
+      Images:
+      - "Image1"
+      - "Image2"
+      - "Image3"
+      - "Image4"
+      - "Image4"
+      - "Image5"
+      - "Image6"
+      - "Image7"
+      - "Image8"
+      - "Image9"
   Image:
-    title: "Image"
     type: "object"
     required:
     - "Image1"
@@ -437,3 +468,17 @@ definitions:
         type: "string"
       Image9:
         type: "string"
+    title: "Image"
+    xml:
+      name: "Image"
+    description: "An array of images"
+    example:
+      Image1: "Picture1.jpg"
+      Image2: "Picture2.jpg"
+      Image3: "Picture3.jpg"
+      Image4: "Picture4.jpg"
+      Image5: "Picture5.jpg"
+      Image6: "Picture6.jpg"
+      Image7: "Picture7.jpg"
+      Image8: "Picture8.jpg"
+      Image9: "Picture9.jpg"
