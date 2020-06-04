@@ -1,4 +1,5 @@
-#Endpoints Helper
+#API Helper v1.0.1
+#Endpoints
 /Events                           List of all the events of the association
 /Events/Y/{Year}/M/{Month}        List of events of a month in a specific year
 /Events/{CodeEvent}               Find an event with the event code
@@ -12,3 +13,27 @@
 /Services/{CodeService}           Find a service with the service name
 /Services/{CodeService}/Events    List of all events of a service
 /Services/{CodeService}/Person    List of all persons of a service
+
+SERVICES:
+service_id
+service_name
+photo_address
+short_description
+long_description
+
+PERSON:
+person_id
+person_name
+person_role
+photo_address
+long_description
+
+EVENTS:
+event_id
+person_id
+event_name
+event_date
+event_location
+photo_address
+short_description
+long_description

@@ -14,9 +14,9 @@ module.exports.eventsCodeEventGET = function eventsCodeEventGET (req, res, next)
     });
 };
 
-module.exports.eventsCodeEventPeopleGET = function eventsCodeEventPeopleGET (req, res, next) {
+module.exports.eventsCodeEventPersonGET = function eventsCodeEventPersonGET (req, res, next) {
   var codeEvent = req.swagger.params['CodeEvent'].value;
-  Event.eventsCodeEventPeopleGET(codeEvent)
+  Event.eventsCodeEventPersonGET(codeEvent)
     .then(function (response) {
       utils.writeJson(res, response);
     })

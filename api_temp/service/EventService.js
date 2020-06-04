@@ -21,11 +21,11 @@ exports.eventsDbSetup = function (connection) {
  * codeEvent Long Code of the event that we want
  * returns Event
  **/
-exports.eventsCodeEventGET = function (codeEvent) {
+exports.eventsCodeEventGET = function(codeEvent) {
   return sqlDb("events")
     .where("event_id", codeEvent)
-    .then((result) => result[0]);
-};
+    .then((result) => result[0])
+}
 
 
 /**
@@ -34,7 +34,7 @@ exports.eventsCodeEventGET = function (codeEvent) {
  * codeEvent Long Code of an event that we want the related persons
  * returns Person
  **/
-exports.eventsCodeEventPeopleGET = function (codeEvent) {
+exports.eventsCodeEventPersonGET = function(codeEvent) {
   return sqlDb("events")
     .select("person_id")
     .where("event_id", codeEvent)
@@ -42,7 +42,7 @@ exports.eventsCodeEventPeopleGET = function (codeEvent) {
       return sqlDb("person").where("person_id", person[0].person_id);
     })
     .then((result) => result[0].person_name);
-};
+}
 
 
 /**
@@ -51,7 +51,7 @@ exports.eventsCodeEventPeopleGET = function (codeEvent) {
  * codeEvent Long Code of an event that we want the related services
  * returns List
  **/
-exports.eventsCodeEventServicesGET = function (codeEvent) {
+exports.eventsCodeEventServicesGET = function(codeEvent) {
   return sqlDb("present")
     .select("service_id")
     .where("event_id", codeEvent)
@@ -63,8 +63,8 @@ exports.eventsCodeEventServicesGET = function (codeEvent) {
     })
     .then((data) => {
       return data;
-    });
-};
+    })
+}
 
 
 /**
@@ -72,15 +72,16 @@ exports.eventsCodeEventServicesGET = function (codeEvent) {
  *
  * returns List
  **/
-exports.eventsGET = function () {
+exports.eventsGET = function() {
   return sqlDb("events")
-  .orderBy("time_date", "desc")
+  .orderBy("event_date", "desc")
   .then((data) => {
     return data.map((result) => {
       return result;
     });
   });
-};
+}
+
 
 /**
  * List of events of a month in a specific year
@@ -91,10 +92,10 @@ exports.eventsGET = function () {
  **/
 exports.eventsYearMonthGET = function(year,month) {
   return sqlDb("events")
-  .orderBy("time_date", "desc")
-  .whereRaw(`SELECT EXTRACT(MONTH FROM TIMESTAMP '2001-02-16 20:38:40`)
+  .orderBy("event_date", "desc")
+  .whereRaw(`EXTRACT(YEAR FROM "event_date")::INTEGER = ?`, year)
+  .andWhereRaw(`EXTRACT(MONTH FROM "event_date")::INTEGER = ?`, month)
   .then(data => {
     return data
   })
 }
-

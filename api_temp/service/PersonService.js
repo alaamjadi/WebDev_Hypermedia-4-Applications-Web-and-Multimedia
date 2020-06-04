@@ -18,37 +18,39 @@ exports.personDbSetup = function (connection) {
 /**
  * List of all events of a person
  *
- * codePerson String Code of a person that we want the related events
+ * codePerson Long Code of a person that we want the related events
  * returns List
  **/
-exports.peopleCodePersonEventsGET = function (codePerson) {
+exports.personCodePersonEventsGET = function(codePerson) {
   return sqlDb("events")
-  .select("event_name")
-  .where("person_id", codePerson)
-  .then((data) => {
-    return data;
-  })
-};
+    .select("event_name")
+    .where("person_id", codePerson)
+    .then((data) => {
+      return data;
+    });
+}
+
 
 /**
  * Find a person with the person code
  *
- * codePerson String Code of a person that we want
+ * codePerson Long Code of a person that we want
  * returns Person
  **/
-exports.peopleCodePersonGET = function (codePerson) {
+exports.personCodePersonGET = function(codePerson) {
   return sqlDb("person")
     .where("person_id", codePerson)
     .then((result) => result[0]);
-};
+}
+
 
 /**
  * List of all services of a person
  *
- * codePerson String Code of a person that we want the related services
+ * codePerson Long Code of a person that we want the related services
  * returns List
  **/
-exports.peopleCodePersonServicesGET = function (codePerson) {
+exports.personCodePersonServicesGET = function(codePerson) {
   return sqlDb("involve")
     .select("service_id")
     .where("person_id", codePerson)
@@ -61,14 +63,15 @@ exports.peopleCodePersonServicesGET = function (codePerson) {
     .then((data) => {
       return data;
     });
-};
+}
+
 
 /**
  * List of all the persons of the association
  *
  * returns List
  **/
-exports.peopleGET = function () {
+exports.personGET = function() {
   return sqlDb("person")
     .orderBy("person_name", "asc")
     .then((data) => {
@@ -76,4 +79,5 @@ exports.peopleGET = function () {
         return result;
       });
     });
-};
+}
+

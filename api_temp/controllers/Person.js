@@ -3,9 +3,9 @@
 var utils = require('../utils/writer.js');
 var Person = require('../service/PersonService');
 
-module.exports.peopleCodePersonEventsGET = function peopleCodePersonEventsGET (req, res, next) {
+module.exports.personCodePersonEventsGET = function personCodePersonEventsGET (req, res, next) {
   var codePerson = req.swagger.params['CodePerson'].value;
-  Person.peopleCodePersonEventsGET(codePerson)
+  Person.personCodePersonEventsGET(codePerson)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -14,9 +14,9 @@ module.exports.peopleCodePersonEventsGET = function peopleCodePersonEventsGET (r
     });
 };
 
-module.exports.peopleCodePersonGET = function peopleCodePersonGET (req, res, next) {
+module.exports.personCodePersonGET = function personCodePersonGET (req, res, next) {
   var codePerson = req.swagger.params['CodePerson'].value;
-  Person.peopleCodePersonGET(codePerson)
+  Person.personCodePersonGET(codePerson)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -25,9 +25,9 @@ module.exports.peopleCodePersonGET = function peopleCodePersonGET (req, res, nex
     });
 };
 
-module.exports.peopleCodePersonServicesGET = function peopleCodePersonServicesGET (req, res, next) {
+module.exports.personCodePersonServicesGET = function personCodePersonServicesGET (req, res, next) {
   var codePerson = req.swagger.params['CodePerson'].value;
-  Person.peopleCodePersonServicesGET(codePerson)
+  Person.personCodePersonServicesGET(codePerson)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -36,8 +36,8 @@ module.exports.peopleCodePersonServicesGET = function peopleCodePersonServicesGE
     });
 };
 
-module.exports.peopleGET = function peopleGET (req, res, next) {
-  Person.peopleGET()
+module.exports.personGET = function personGET (req, res, next) {
+  Person.personGET()
     .then(function (response) {
       utils.writeJson(res, response);
     })

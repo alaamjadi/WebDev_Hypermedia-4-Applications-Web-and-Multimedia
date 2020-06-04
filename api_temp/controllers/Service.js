@@ -25,9 +25,9 @@ module.exports.servicesCodeServiceGET = function servicesCodeServiceGET (req, re
     });
 };
 
-module.exports.servicesCodeServicePeopleGET = function servicesCodeServicePeopleGET (req, res, next) {
+module.exports.servicesCodeServicePersonGET = function servicesCodeServicePersonGET (req, res, next) {
   var codeService = req.swagger.params['CodeService'].value;
-  Service.servicesCodeServicePeopleGET(codeService)
+  Service.servicesCodeServicePersonGET(codeService)
     .then(function (response) {
       utils.writeJson(res, response);
     })

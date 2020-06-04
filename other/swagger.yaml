@@ -2,7 +2,7 @@ swagger: "2.0"
 info:
   description: "This is an open API for Milcare Foundations Onlus website developed\
     \ by Sophisticated Kids team"
-  version: "1.0.4"
+  version: "1.0.5"
   title: "MilCare Foundation Onlus API"
   termsOfService: "All the material on the website is for educational purpose only,\
     \ any commercial use is prohibited."
@@ -44,7 +44,7 @@ paths:
         "400":
           description: "Unexpected error"
       x-swagger-router-controller: "Event"
-  /Events/{Year}/{Month}:
+  /Events/Y/{Year}/M/{Month}:
     get:
       tags:
       - "Event"
@@ -123,12 +123,12 @@ paths:
         "404":
           description: "invalid Code"
       x-swagger-router-controller: "Event"
-  /Events/{CodeEvent}/People:
+  /Events/{CodeEvent}/Person:
     get:
       tags:
       - "Event"
       summary: "List of all persons of an event"
-      operationId: "eventsCodeEventPeopleGET"
+      operationId: "eventsCodeEventPersonGET"
       parameters:
       - name: "CodeEvent"
         in: "path"
@@ -146,12 +146,12 @@ paths:
         "404":
           description: "invalid Code"
       x-swagger-router-controller: "Event"
-  /People:
+  /Person:
     get:
       tags:
       - "Person"
       summary: "List of all the persons of the association"
-      operationId: "peopleGET"
+      operationId: "personGET"
       parameters: []
       responses:
         "200":
@@ -163,18 +163,19 @@ paths:
         "400":
           description: "Unexpected error"
       x-swagger-router-controller: "Person"
-  /People/{CodePerson}:
+  /Person/{CodePerson}:
     get:
       tags:
       - "Person"
       summary: "Find a person with the person code"
-      operationId: "peopleCodePersonGET"
+      operationId: "personCodePersonGET"
       parameters:
       - name: "CodePerson"
         in: "path"
         description: "Code of a person that we want"
         required: true
-        type: "string"
+        type: "integer"
+        format: "int64"
       responses:
         "200":
           description: "successful operation"
@@ -185,18 +186,19 @@ paths:
         "404":
           description: "invalid CodePerson"
       x-swagger-router-controller: "Person"
-  /People/{CodePerson}/Services:
+  /Person/{CodePerson}/Services:
     get:
       tags:
       - "Person"
       summary: "List of all services of a person"
-      operationId: "peopleCodePersonServicesGET"
+      operationId: "personCodePersonServicesGET"
       parameters:
       - name: "CodePerson"
         in: "path"
         description: "Code of a person that we want the related services"
         required: true
-        type: "string"
+        type: "integer"
+        format: "int64"
       responses:
         "200":
           description: "successful operation"
@@ -209,18 +211,19 @@ paths:
         "404":
           description: "invalid person code"
       x-swagger-router-controller: "Person"
-  /People/{CodePerson}/Events:
+  /Person/{CodePerson}/Events:
     get:
       tags:
       - "Person"
       summary: "List of all events of a person"
-      operationId: "peopleCodePersonEventsGET"
+      operationId: "personCodePersonEventsGET"
       parameters:
       - name: "CodePerson"
         in: "path"
         description: "Code of a person that we want the related events"
         required: true
-        type: "string"
+        type: "integer"
+        format: "int64"
       responses:
         "200":
           description: "successful operation"
@@ -261,7 +264,8 @@ paths:
         in: "path"
         description: "Code of a service that we want"
         required: true
-        type: "string"
+        type: "integer"
+        format: "int64"
       responses:
         "200":
           description: "operation was successful"
@@ -283,7 +287,8 @@ paths:
         in: "path"
         description: "Code of a service that we want the related events"
         required: true
-        type: "string"
+        type: "integer"
+        format: "int64"
       responses:
         "200":
           description: "successful operation"
@@ -296,18 +301,19 @@ paths:
         "404":
           description: "invalid Name"
       x-swagger-router-controller: "Service"
-  /Services/{CodeService}/People:
+  /Services/{CodeService}/Person:
     get:
       tags:
       - "Service"
       summary: "List of all persons of a service"
-      operationId: "servicesCodeServicePeopleGET"
+      operationId: "servicesCodeServicePersonGET"
       parameters:
       - name: "CodeService"
         in: "path"
         description: "Code of a service that we want the related persons"
         required: true
-        type: "string"
+        type: "integer"
+        format: "int64"
       responses:
         "200":
           description: "successful operation"
@@ -373,10 +379,11 @@ definitions:
     - "Name"
     - "Role"
     - "Images"
-    - "Description"
+    - "LongDescription"
     properties:
       CodePerson:
-        type: "string"
+        type: "integer"
+        format: "int64"
       Name:
         type: "string"
       Role:
@@ -385,7 +392,7 @@ definitions:
         type: "array"
         items:
           $ref: "#/definitions/Image"
-      Description:
+      LongDescription:
         type: "string"
     title: "Person"
     xml:
@@ -397,7 +404,7 @@ definitions:
       Role: "Volunteer"
       Images:
       - "Image1"
-      Description: "Biography"
+      LongDescription: "Biography"
   Service:
     type: "object"
     required:
@@ -407,7 +414,8 @@ definitions:
     - "LongDescription"
     properties:
       Name:
-        type: "string"
+        type: "integer"
+        format: "int64"
       Images:
         type: "array"
         items:
