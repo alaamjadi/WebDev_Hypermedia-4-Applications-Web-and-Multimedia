@@ -50,7 +50,7 @@ paths:
       tags:
       - "Event"
       summary: "List of events of a month"
-      operationId: "eventMonthGET"
+      operationId: "eventsMonthGET"
       parameters:
       - name: "Month"
         in: "path"
@@ -75,7 +75,7 @@ paths:
       tags:
       - "Event"
       summary: "Find an event with the event code"
-      operationId: "eventCodeGET"
+      operationId: "eventsCodeEventGET"
       parameters:
       - name: "CodeEvent"
         in: "path"
@@ -98,7 +98,7 @@ paths:
       tags:
       - "Event"
       summary: "List of all services of an event"
-      operationId: "eventsCodeServicesGET"
+      operationId: "eventsCodeEventServicesGET"
       parameters:
       - name: "CodeEvent"
         in: "path"
@@ -123,7 +123,7 @@ paths:
       tags:
       - "Event"
       summary: "List of all persons of an event"
-      operationId: "eventsCodePersonGET"
+      operationId: "eventsCodeEventPeopleGET"
       parameters:
       - name: "CodeEvent"
         in: "path"
@@ -163,7 +163,7 @@ paths:
       tags:
       - "Person"
       summary: "Find a person with the person code"
-      operationId: "personCodeGET"
+      operationId: "peopleCodePersonGET"
       parameters:
       - name: "CodePerson"
         in: "path"
@@ -185,7 +185,7 @@ paths:
       tags:
       - "Person"
       summary: "List of all services of a person"
-      operationId: "personCodeServicesGET"
+      operationId: "peopleCodePersonServicesGET"
       parameters:
       - name: "CodePerson"
         in: "path"
@@ -209,7 +209,7 @@ paths:
       tags:
       - "Person"
       summary: "List of all events of a person"
-      operationId: "personCodeEventsGET"
+      operationId: "peopleCodePersonEventsGET"
       parameters:
       - name: "CodePerson"
         in: "path"
@@ -250,7 +250,7 @@ paths:
       tags:
       - "Service"
       summary: "Find a service with the service name"
-      operationId: "serviceNameGET"
+      operationId: "servicesNameGET"
       parameters:
       - name: "Name"
         in: "path"
@@ -272,7 +272,7 @@ paths:
       tags:
       - "Service"
       summary: "List of all events of a service"
-      operationId: "servicesNameEventGET"
+      operationId: "servicesNameEventsGET"
       parameters:
       - name: "Name"
         in: "path"
@@ -321,11 +321,11 @@ definitions:
     required:
     - "CodeEvent"
     - "Date"
-    - "DetailedDescription"
     - "Images"
+    - "Location"
+    - "LongDescription"
     - "Name"
     - "ShortDescription"
-    - "location"
     properties:
       CodeEvent:
         type: "integer"
@@ -335,11 +335,11 @@ definitions:
       Date:
         type: "string"
         format: "date-time"
-      location:
+      Location:
         type: "string"
       ShortDescription:
         type: "string"
-      DetailedDescription:
+      LongDescription:
         type: "string"
       Images:
         type: "array"
@@ -353,20 +353,14 @@ definitions:
       CodeEvent: 1
       Name: "Presentation of service X"
       Date: "2020-05-25T17:00:00"
-      location: "Milan"
+      Location: "Milan"
       ShortDescription: "Short description of the event"
-      DetailedDescription: "Detailed description of the event"
+      LongDescription: "Long description of the event"
       Images:
       - "Image1"
       - "Image2"
       - "Image3"
       - "Image4"
-      - "Image4"
-      - "Image5"
-      - "Image6"
-      - "Image7"
-      - "Image8"
-      - "Image9"
   Person:
     type: "object"
     required:
@@ -393,26 +387,17 @@ definitions:
       name: "Person"
     description: "Person X"
     example:
-      CodePerson: "Name-Family"
-      Name: "FName LName"
+      CodePerson: "FistName-LastName"
+      Name: "FistName LastName"
       Role: "Volunteer"
       Description: "Biography"
       Images:
       - "Image1"
-      - "Image2"
-      - "Image3"
-      - "Image4"
-      - "Image4"
-      - "Image5"
-      - "Image6"
-      - "Image7"
-      - "Image8"
-      - "Image9"
   Service:
     type: "object"
     required:
-    - "DetailedDescription"
     - "Images"
+    - "LongDescription"
     - "Name"
     - "ShortDescription"
     properties:
@@ -420,7 +405,7 @@ definitions:
         type: "string"
       ShortDescription:
         type: "string"
-      DetailedDescription:
+      LongDescription:
         type: "string"
       Images:
         type: "array"
@@ -433,7 +418,7 @@ definitions:
     example:
       Name: "Hospice"
       ShortDescription: "short description of the service"
-      DetailedDescription: "detailed description of the service"
+      LongDescription: "Long description of the service"
       Images:
       - "Image1"
       - "Image2"
@@ -442,9 +427,6 @@ definitions:
       - "Image4"
       - "Image5"
       - "Image6"
-      - "Image7"
-      - "Image8"
-      - "Image9"
   Image:
     type: "object"
     required:
@@ -452,33 +434,9 @@ definitions:
     properties:
       Image1:
         type: "string"
-      Image2:
-        type: "string"
-      Image3:
-        type: "string"
-      Image4:
-        type: "string"
-      Image5:
-        type: "string"
-      Image6:
-        type: "string"
-      Image7:
-        type: "string"
-      Image8:
-        type: "string"
-      Image9:
-        type: "string"
     title: "Image"
     xml:
       name: "Image"
-    description: "An array of images"
+    description: "ImageName.Extention"
     example:
       Image1: "Picture1.jpg"
-      Image2: "Picture2.jpg"
-      Image3: "Picture3.jpg"
-      Image4: "Picture4.jpg"
-      Image5: "Picture5.jpg"
-      Image6: "Picture6.jpg"
-      Image7: "Picture7.jpg"
-      Image8: "Picture8.jpg"
-      Image9: "Picture9.jpg"

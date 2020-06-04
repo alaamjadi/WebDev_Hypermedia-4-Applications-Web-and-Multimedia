@@ -1,21 +1,24 @@
-const sqlDbFactory = require('knex');
+const sqlDbFactory = require("knex");
 
-let { eventsDbSetup } = require('./EventService');
-//let { personDbSetup } = require('./PersonService');
-//let { serviceDbSetup } = require('./ServiceService');
+let { eventsDbSetup } = require("./EventService");
 
-let sqlDb = sqlDbFactory({
+let sqlDbLocal = sqlDbFactory({
   client: 'pg',
-  connection: process.env.DATABASE_URL,
   ssl: true,
-  debug: true
+  debug: true,
+  connection: {
+    // host: 'localhost'
+    // port: '5432'
+    host : '127.0.0.1',
+    user : 'postgres',
+    password : '1234',
+    database : 'postgres'
+  }
 });
 
 function setupDataLayer() {
-  console.log('Setting up data layer');
-  //personDbSetup(sqlDb);
-  //serviceDbSetup(sqlDB);
-  return eventsDbSetup(sqlDb);
+  console.log("Setting up data layer");
+  return eventsDbSetup(sqlDbLocal);
 }
 
-module.exports = { database: sqlDb, setupDataLayer };
+module.exports = { database: sqlDbLocal, setupDataLayer };

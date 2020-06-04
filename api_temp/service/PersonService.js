@@ -10,17 +10,17 @@ exports.peopleGET = function() {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = [ {
-  "CodePerson" : "Name-Family",
-  "Name" : "FName LName",
+  "CodePerson" : "FistName-LastName",
+  "Name" : "FistName LastName",
   "Role" : "Volunteer",
   "Description" : "Biography",
-  "Images" : [ "Image1", "Image2", "Image3", "Image4", "Image4", "Image5", "Image6", "Image7", "Image8", "Image9" ]
+  "Images" : [ "Image1" ]
 }, {
-  "CodePerson" : "Name-Family",
-  "Name" : "FName LName",
+  "CodePerson" : "FistName-LastName",
+  "Name" : "FistName LastName",
   "Role" : "Volunteer",
   "Description" : "Biography",
-  "Images" : [ "Image1", "Image2", "Image3", "Image4", "Image4", "Image5", "Image6", "Image7", "Image8", "Image9" ]
+  "Images" : [ "Image1" ]
 } ];
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
@@ -44,18 +44,18 @@ exports.personCodeEventsGET = function(codePerson) {
   "CodeEvent" : 1,
   "Name" : "Presentation of service X",
   "Date" : "2020-05-25T17:00:00",
-  "location" : "Milan",
+  "Location" : "Milan",
   "ShortDescription" : "Short description of the event",
-  "DetailedDescription" : "Detailed description of the event",
-  "Images" : [ "Image1", "Image2", "Image3", "Image4", "Image4", "Image5", "Image6", "Image7", "Image8", "Image9" ]
+  "LongDescription" : "Long description of the event",
+  "Images" : [ "Image1", "Image2", "Image3", "Image4" ]
 }, {
   "CodeEvent" : 1,
   "Name" : "Presentation of service X",
   "Date" : "2020-05-25T17:00:00",
-  "location" : "Milan",
+  "Location" : "Milan",
   "ShortDescription" : "Short description of the event",
-  "DetailedDescription" : "Detailed description of the event",
-  "Images" : [ "Image1", "Image2", "Image3", "Image4", "Image4", "Image5", "Image6", "Image7", "Image8", "Image9" ]
+  "LongDescription" : "Long description of the event",
+  "Images" : [ "Image1", "Image2", "Image3", "Image4" ]
 } ];
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
@@ -76,11 +76,11 @@ exports.personCodeGET = function(codePerson) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
-  "CodePerson" : "Name-Family",
-  "Name" : "FName LName",
+  "CodePerson" : "FistName-LastName",
+  "Name" : "FistName LastName",
   "Role" : "Volunteer",
   "Description" : "Biography",
-  "Images" : [ "Image1", "Image2", "Image3", "Image4", "Image4", "Image5", "Image6", "Image7", "Image8", "Image9" ]
+  "Images" : [ "Image1" ]
 };
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
@@ -103,13 +103,13 @@ exports.personCodeServicesGET = function(codePerson) {
     examples['application/json'] = [ {
   "Name" : "Hospice",
   "ShortDescription" : "short description of the service",
-  "DetailedDescription" : "detailed description of the service",
-  "Images" : [ "Image1", "Image2", "Image3", "Image4", "Image4", "Image5", "Image6", "Image7", "Image8", "Image9" ]
+  "LongDescription" : "Long description of the service",
+  "Images" : [ "Image1", "Image2", "Image3", "Image4", "Image4", "Image5", "Image6" ]
 }, {
   "Name" : "Hospice",
   "ShortDescription" : "short description of the service",
-  "DetailedDescription" : "detailed description of the service",
-  "Images" : [ "Image1", "Image2", "Image3", "Image4", "Image4", "Image5", "Image6", "Image7", "Image8", "Image9" ]
+  "LongDescription" : "Long description of the service",
+  "Images" : [ "Image1", "Image2", "Image3", "Image4", "Image4", "Image5", "Image6" ]
 } ];
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
