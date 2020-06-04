@@ -27,6 +27,7 @@ exports.eventsCodeEventGET = function (codeEvent) {
     .then((result) => result[0]);
 };
 
+
 /**
  * List of all persons of an event
  *
@@ -43,13 +44,13 @@ exports.eventsCodeEventPeopleGET = function (codeEvent) {
     .then((result) => result[0].person_name);
 };
 
+
 /**
  * List of all services of an event
  *
  * codeEvent Long Code of an event that we want the related services
  * returns List
  **/
-
 exports.eventsCodeEventServicesGET = function (codeEvent) {
   return sqlDb("present")
     .select("service_id")
@@ -64,6 +65,7 @@ exports.eventsCodeEventServicesGET = function (codeEvent) {
       return data;
     });
 };
+
 
 /**
  * List of all the events of the association
@@ -81,15 +83,18 @@ exports.eventsGET = function () {
 };
 
 /**
- * List of events of a month
+ * List of events of a month in a specific year
  *
+ * year Long Number of the Year of the events for filtering
  * month Long Number of the month of the events for filtering
  * returns List
  **/
-/* exports.eventsMonthGET = function (month) {
+exports.eventsYearMonthGET = function(year,month) {
   return sqlDb("events")
-    .orderBy("time_date", "desc")
-    .select("time_date")
-    .then()
-};
- */
+  .orderBy("time_date", "desc")
+  .whereRaw(`SELECT EXTRACT(MONTH FROM TIMESTAMP '2001-02-16 20:38:40`)
+  .then(data => {
+    return data
+  })
+}
+

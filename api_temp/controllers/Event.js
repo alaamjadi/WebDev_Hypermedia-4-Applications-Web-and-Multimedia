@@ -46,9 +46,10 @@ module.exports.eventsGET = function eventsGET (req, res, next) {
     });
 };
 
-module.exports.eventsMonthGET = function eventsMonthGET (req, res, next) {
+module.exports.eventsYearMonthGET = function eventsYearMonthGET (req, res, next) {
+  var year = req.swagger.params['Year'].value;
   var month = req.swagger.params['Month'].value;
-  Event.eventsMonthGET(month)
+  Event.eventsYearMonthGET(year,month)
     .then(function (response) {
       utils.writeJson(res, response);
     })

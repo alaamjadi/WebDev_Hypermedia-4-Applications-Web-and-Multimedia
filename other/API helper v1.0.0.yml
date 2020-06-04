@@ -1,0 +1,14 @@
+#Endpoints Helper
+/Events                           List of all the events of the association
+/Events/Y/{Year}/M/{Month}        List of events of a month in a specific year
+/Events/{CodeEvent}               Find an event with the event code
+/Events/{CodeEvent}/Services      List of all services of an event
+/Events/{CodeEvent}/Person        List of all persons of an event
+/Person                           List of all the persons of the association
+/Person/{CodePerson}              Find a person with the person code
+/Person/{CodePerson}/Services     List of all services of a person
+/Person/{CodePerson}/Events       List of all events of a person
+/Services                         List of all the services of the association
+/Services/{CodeService}           Find a service with the service name
+/Services/{CodeService}/Events    List of all events of a service
+/Services/{CodeService}/Person    List of all persons of a service

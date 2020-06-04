@@ -1,4 +1,3 @@
----
 swagger: "2.0"
 info:
   description: "This is an open API for Milcare Foundations Onlus website developed\
@@ -326,12 +325,12 @@ definitions:
     type: "object"
     required:
     - "CodeEvent"
-    - "Date"
-    - "Images"
-    - "Location"
-    - "LongDescription"
     - "Name"
+    - "Date"
+    - "Location"
+    - "Images"
     - "ShortDescription"
+    - "LongDescription"
     properties:
       CodeEvent:
         type: "integer"
@@ -371,10 +370,10 @@ definitions:
     type: "object"
     required:
     - "CodePerson"
-    - "Description"
-    - "Images"
     - "Name"
     - "Role"
+    - "Images"
+    - "Description"
     properties:
       CodePerson:
         type: "string"
@@ -402,10 +401,10 @@ definitions:
   Service:
     type: "object"
     required:
-    - "Images"
-    - "LongDescription"
     - "Name"
+    - "Images"
     - "ShortDescription"
+    - "LongDescription"
     properties:
       Name:
         type: "string"
