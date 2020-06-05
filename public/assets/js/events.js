@@ -2,7 +2,11 @@
 
 loadDoc("https://aysa-ojoloo.herokuapp.com/api/events", function_events_all);
 let pic_path = '../assets/img/'; 
-var i
+/*var change = () => {
+      document.getElementById("breadcrumbs").innerHTML = Number(document.getElementById("month").value) ? dayjs().set("month", Number(document.getElementById("month").value) - 1).format("MMMM") : "all"
+
+      loadDoc(document.getElementById("month").value)
+    }*/
 function loadDoc(url, cFunction) {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
@@ -11,6 +15,7 @@ function loadDoc(url, cFunction) {
       cFunction(result);
     }
   };
+ 
 
   xhttp.open("GET", url, true)
   xhttp.send();
@@ -19,6 +24,7 @@ function loadDoc(url, cFunction) {
 
 function function_events_all(result) {
   // action goes here
+  var i;
   console.log(result)  
   for(i=0;i<result.length;i++){ 
    document.getElementById("event_cards").innerHTML +=  `
@@ -47,7 +53,12 @@ function function_events_all(result) {
             </div>
              </div>
      `
- }
+
+console.log(result[i].event_date.split("T")[0].split("-")[0])
+
+
+}
+
 
 
 

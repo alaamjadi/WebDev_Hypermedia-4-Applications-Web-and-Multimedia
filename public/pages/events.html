@@ -101,8 +101,9 @@
               Select year
             </button>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">2020</a>
-              <a class="dropdown-item" href="#">2019</a>
+              <button class="dropdown-item" onclick="filterSelection('all')">All</button>
+              <button class="dropdown-item" onclick="filterSelection('y2020')" >2020</button>
+              <button class="dropdown-item" onclick="filterSelection('y2019')">2019</button>
             </div>
           </div>
         </div>
@@ -111,20 +112,20 @@
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
               Select Month
             </button>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">All</a>
-              <a class="dropdown-item" href="#">January</a>
-              <a class="dropdown-item" href="#">February</a>
-              <a class="dropdown-item" href="#">March</a>
-              <a class="dropdown-item" href="#">April</a>
-              <a class="dropdown-item" href="#">May</a>
-              <a class="dropdown-item" href="#">June</a>
-              <a class="dropdown-item" href="#">July</a>
-              <a class="dropdown-item" href="#">August</a>
-              <a class="dropdown-item" href="#">September</a>
-              <a class="dropdown-item" href="#">October</a>
-              <a class="dropdown-item" href="#">November</a>
-              <a class="dropdown-item" href="#">December</a>
+            <div class="dropdown-menu" onchange="change()">
+              <button class="dropdown-item" value="0">All</button>
+              <button class="dropdown-item" value="1">January</button>
+              <button class="dropdown-item" value="2">February</button>
+              <button class="dropdown-item" value="3">March</button>
+              <button class="dropdown-item" value="4">April</button>
+              <button class="dropdown-item" value="5">May</button>
+              <button class="dropdown-item" value="6">June</button>
+              <button class="dropdown-item" value="7">July</button>
+              <button class="dropdown-item" value="8">August</button>
+              <button class="dropdown-item" value="9">September</button>
+              <button class="dropdown-item" value="10">October</button>
+              <button class="dropdown-item" value="11">November</button>
+              <button class="dropdown-item" value="12">December</button>
             </div>
           </div>
         </div>
