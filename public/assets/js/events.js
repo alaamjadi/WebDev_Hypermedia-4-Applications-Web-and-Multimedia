@@ -25,7 +25,7 @@ function function_events_all(result) {
     <div class="mb-4 align-items-start col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4"
           >
             <div class="cus_card">
-              <a href="events.html?event_id=${result[i].event_id}">
+              <a href="event.html?event_id=${result[i].event_id}">
                 <div class="card shadow mb-5 bg-white rounded-lg">
                   <div class="view overlay">
                     <img

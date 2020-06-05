@@ -1,6 +1,8 @@
 
-loadDoc("https://aysa-ojoloo.herokuapp.com/api/events", function_events_all);
-let pic_path = '../assets/img/'; 
+const urlParams =window.location.search.split('=');
+
+loadDoc("https://aysa-ojoloo.herokuapp.com/api/Events/"+urlParams[1], function_event);
+
 var i
 function loadDoc(url, cFunction) {
   var xhttp = new XMLHttpRequest();
@@ -14,36 +16,53 @@ function loadDoc(url, cFunction) {
   xhttp.send();
 }
 
-console.log(result)
-
-function function_events_all(result) {
+function function_event(result) {
   // action goes here
   console.log(result)  
-  for(i=0;i<result.length;i++){ 
-   document.getElementById("event_cards").innerHTML +=  `
-    <div class="mb-4 align-items-start col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4"
-          >
-            <div class="cus_card">
-              <a href="events.html?event_id=${result[i].event_id}">
-                <div class="card shadow mb-5 bg-white rounded-lg">
-                  <div class="view overlay">
-                    <img
-                      class="card-img-top"
-                      src="../assets/img/${result[i].photo_address}"
-                      alt="Event card photo ${result[i].event_id}"
-                    />
-                  </div>
-                  <div class="card-body">
-                    <h3 class="card-title mb-0 mt-0 text-center"> ${result[i].event_name} </h3>
-                    <p class = "text-center mt-2 short_descr"> ${result[i].short_description}</p>
-                    <!-- <p class="card-text"></p> -->
-                  </div>
-                </div>
-              </a>
+  var desc = JSON.parse(result.long_description);
+  console.log(desc)
+
+    for(i=0;i<4;i++){
+      if(urlParams[1] == i){
+        document.title = ` ${result.event_name}`;
+          document.getElementById("breadcrumb_title").innerHTML =  `
+          <li class="breadcrumb-item">Events</li>
+          <li class="breadcrumb-item">${result.event_name}</li>`
+        document.getElementById("event_content1").innerHTML = `
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 align-items-start">
+              <h1>
+                ${result.event_name}
+              </h1>
             </div>
-             </div>
-     `
- }
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 align-items-start">
+              <p class="cus_present">
+                <strong>${desc[0]}</strong>
+                <a class="cus_link" href="#">
+                  <span>
+                    Anna Andreoni
+                  </span>
+                </a>
+              </p>
+              <p>
+                <strong>${desc[1]}</strong>
+                <a href="#">
+                  <span>
+                    Listening Center
+                  </span>
+                </a>
+              </p>
+            </div>
+        `
+        document.getElementById("event_content2").innerHTML = `
+         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 align-items-start">
+          <p><strong>  Date : ${result.event_date.split("T")[0]} , Time: ${result.event_date.split("T")[1].split(".")[0]}</strong></p>
+          <p> ${desc[2]}</p>
+          <p> ${desc[3]}</p>
+          <p>${desc[4]}</p>
+        </div>
+        `
+}
+}
 
 
 
