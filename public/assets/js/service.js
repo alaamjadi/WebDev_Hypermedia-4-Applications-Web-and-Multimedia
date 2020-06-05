@@ -25,6 +25,7 @@ console.log(desc)
   // action goes here
 for(i=0;i<6;i++){
       if(urlParams[1] == i){
+        document.title = ` ${result.service_name}`;
           document.getElementById("breadcrumb_subtitle").innerHTML =  `
           <li class="breadcrumb-item">Services</li>
           <li class="breadcrumb-item">${result.service_name}</li>
