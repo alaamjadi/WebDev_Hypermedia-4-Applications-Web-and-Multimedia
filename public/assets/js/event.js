@@ -1,5 +1,4 @@
 
-
 loadDoc("https://aysa-ojoloo.herokuapp.com/api/events", function_events_all);
 let pic_path = '../assets/img/'; 
 var i
@@ -11,11 +10,11 @@ function loadDoc(url, cFunction) {
       cFunction(result);
     }
   };
-
   xhttp.open("GET", url, true)
   xhttp.send();
 }
 
+console.log(result)
 
 function function_events_all(result) {
   // action goes here
@@ -36,9 +35,6 @@ function function_events_all(result) {
                   </div>
                   <div class="card-body">
                     <h3 class="card-title mb-0 mt-0 text-center"> ${result[i].event_name} </h3>
-                    <p class = "text-center mt-2 mb-0 short_descr"> ${result[i].event_date.split("T")[0]} </p>
-                    <p class = "text-center mt-0 short_descr"> ${result[i].event_date.split("T")[1].split(".")[0]} </p>
-                    <p class = "text-center short_descr"> ${result[i].event_location}</p>
                     <p class = "text-center mt-2 short_descr"> ${result[i].short_description}</p>
                     <!-- <p class="card-text"></p> -->
                   </div>
