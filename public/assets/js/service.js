@@ -73,9 +73,10 @@ for(i=0;i<6;i++){
               <p class="cus_content">
                 ${desc[2]}
               </p>
+              <p class="cus_content">${desc[3]}</p>
             </div>
             <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 align-items-start">
-              <p class="cus_content">${desc[3]}</p>
+              
               <p class="cus_content">${desc[4]}</p>
               <p class="cus_content">${desc[5]}</p>
             </div>`
