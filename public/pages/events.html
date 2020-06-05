@@ -75,70 +75,81 @@
     </div>
   </section>
 
-
-  <div class="container">
-    <div class="row">
-      <h1>
-        List of Events
-      </h1>
-    </div>
-    <div class="row">
-      <div class="col-12 col-sm-4 col-md-4 col-lg-2 col-xl-2 mt-4">
-        <!--try for buttons -->
-        <div class="dropdown">
-          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-            Select Year
-          </button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">2020</a>
-            <a class="dropdown-item" href="#">2019</a>
-
-
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-sm-4 col-md-4 col-lg-2 col-xl-2 mt-4">
-        <div class="dropdown">
-          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-            Select Month
-          </button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">All</a>
-            <a class="dropdown-item" href="#">January</a>
-            <a class="dropdown-item" href="#">February</a>
-            <a class="dropdown-item" href="#">March</a>
-            <a class="dropdown-item" href="#">April</a>
-            <a class="dropdown-item" href="#">May</a>
-            <a class="dropdown-item" href="#">June</a>
-            <a class="dropdown-item" href="#">July</a>
-            <a class="dropdown-item" href="#">August</a>
-            <a class="dropdown-item" href="#">September</a>
-            <a class="dropdown-item" href="#">October</a>
-            <a class="dropdown-item" href="#">November</a>
-            <a class="dropdown-item" href="#">December</a>
+  <!-- *** Title and Info Section *** -->
+  <section>
+    <div>
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 align-items-start">
+            <h1>
+              Milcare Events
+            </h1>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
+
+  <!-- *** Filteration Buttons *** -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-sm-4 col-md-4 col-lg-2 col-xl-2 mt-2 mb-3">
+          <!--try for buttons -->
+          <div class="dropdown">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+              Select year
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">2020</a>
+              <a class="dropdown-item" href="#">2019</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-4 col-md-4 col-lg-2 col-xl-2 mt-2 mb-3">
+          <div class="dropdown">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+              Select Month
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">All</a>
+              <a class="dropdown-item" href="#">January</a>
+              <a class="dropdown-item" href="#">February</a>
+              <a class="dropdown-item" href="#">March</a>
+              <a class="dropdown-item" href="#">April</a>
+              <a class="dropdown-item" href="#">May</a>
+              <a class="dropdown-item" href="#">June</a>
+              <a class="dropdown-item" href="#">July</a>
+              <a class="dropdown-item" href="#">August</a>
+              <a class="dropdown-item" href="#">September</a>
+              <a class="dropdown-item" href="#">October</a>
+              <a class="dropdown-item" href="#">November</a>
+              <a class="dropdown-item" href="#">December</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- *** Event Cards *** -->
+  <section>
+    <div class="container">
+      <div class="row" id="event_cards">
+
+      </div>
+    </div>
+  </section>
 
 
-  <!-- javascript code-->
-  <!-- end of javascript code-->
-  <!-- end of try-->
-  <br>
-  <br>
-
-  <div id="Events">
 
 
-  </div>
 
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
+
+
+
+
+
 
   <!-- *** Footer Section *** -->
   <footer>
@@ -168,6 +179,7 @@
 
 
   <!-- *** Optional JavaScript *** -->
+  <script src="../assets/js/events.js"></script>
 
   <!-- *** jQuery first, then Popper.js, then Bootstrap JS *** -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
