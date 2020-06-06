@@ -18,6 +18,9 @@ fetch(URL.API + URL.PERSON + URL.ID)
   .then(function (data) {
     document.title = `${data.person_name}`;
     var L_description = JSON.parse(data.long_description);
+
+    document.getElementById("breadcrumb_title").innerHTML =  `<li class="breadcrumb-item">Staff</li><li class="breadcrumb-item">Member: ${data.person_name}</li>`
+
     document.getElementById(
       "person_name1"
     ).innerHTML = `<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 align-items-start"><h1>${data.person_name}</h1></div><div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 align-items-start" id = "person_pic1"> <img src="../assets/img/${data.photo_address}" class="img-fluid" alt="staffpics"/><p class="cus_present mt-3"><strong>${L_description[0]} </strong><div id="getEventsFromAPI"></div></p><p><strong>${L_description[1]}</strong><div id="getServicesFromAPI"></div></p></div><div class="col-12 col-sm-6 col-md-6 col-lg-8 col-xl-8 align-items-start"><p class="cus_title_justified">Role: ${data.person_role}</p><p class="cus_content">${L_description[2]}</p><p class="mb-1 mt-4 cus_title_justified">${L_description[3]}</p><p class="cus_content">${L_description[4]}</p><p class="mb-0 mt-4 cus_title_justified">${L_description[5]}</p><p class="cus_content">${L_description[6]}</p><p class="mb-1 mt-4 cus_title_justified">${L_description[7]}</p><p class="cus_content">${L_description[8]}</p></div>`;

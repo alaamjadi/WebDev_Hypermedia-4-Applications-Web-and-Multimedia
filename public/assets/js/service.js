@@ -52,7 +52,7 @@ fetch(URL.API + URL.SERVICES + URL.ID)
     } else {
       document.getElementById(
         "getEventsFromAPI"
-      ).innerHTML += `<p><span>Not involved in any events</span></p>`;
+      ).innerHTML += `<p><span>Not presented in events</span></p>`;
     }
     return fetch(URL.API + URL.SERVICES + URL.ID + URL.PERSON);
   })
@@ -74,7 +74,7 @@ fetch(URL.API + URL.SERVICES + URL.ID)
     } else {
       document.getElementById(
         "getPersonFromAPI"
-      ).innerHTML += `<p><span>Not involved in any services</span></p>`;
+      ).innerHTML += `<p><span>No person involved</span></p>`;
     }
   })
   .catch(function (error) {
