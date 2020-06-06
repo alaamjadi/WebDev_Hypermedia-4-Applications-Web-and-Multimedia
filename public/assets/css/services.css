@@ -8,3 +8,7 @@
     background-attachment: scroll;
     margin-top: 65px;
 }
+
+#services_card{
+	height: 250px;
+}

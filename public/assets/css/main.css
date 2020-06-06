@@ -75,7 +75,6 @@ h3 {
     color: #555050;
 }
 
-
 /* Card Hover and Description*/
 .cus_card:hover .card-body,
 .cus_card:hover .card-title,
@@ -85,6 +84,7 @@ h3 {
   text-decoration: none;
   font-weight: bold;
 }
+
 .short_descr{
     color: black;
     text-align: justify;

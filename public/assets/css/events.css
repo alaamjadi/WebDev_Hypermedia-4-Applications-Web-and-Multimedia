@@ -8,3 +8,7 @@
     background-attachment: scroll;
     margin-top: 65px;
 }
+
+#card_events{
+    height: 450px;
+}
