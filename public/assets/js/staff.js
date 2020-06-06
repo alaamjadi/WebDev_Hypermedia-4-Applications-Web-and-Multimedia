@@ -20,7 +20,7 @@ function function_person_all(result) {
 for(i = 0; i<result.length; i++){
   result.map(item => {
     document.getElementById("person"+i).innerHTML =  `
-                  <a href="member1.html?person_id=${result[i].person_id}">
+                  <a href="member.html?person_id=${result[i].person_id}">
                 <div class="card hadow mb-5 bg-white rounded-lg"  >
                 <div class="view overlay" >
                     <img
