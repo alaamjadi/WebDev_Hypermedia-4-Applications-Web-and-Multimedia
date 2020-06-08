@@ -94,39 +94,24 @@
   <section>
     <div class="container">
       <div class="row">
-        <div class="col-12 col-sm-4 col-md-4 col-lg-2 col-xl-2 mt-2 mb-3">
-          <!--try for buttons -->
-          <div class="dropdown">
-            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-              Select year
-            </button>
-            <div class="dropdown-menu">
-              <button class="dropdown-item" onclick="filterSelection('all')">All</button>
-              <button class="dropdown-item" onclick="filterSelection('y2020')" >2020</button>
-              <button class="dropdown-item" onclick="filterSelection('y2019')">2019</button>
-            </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+          <h2>
+            Select year:
+          </h2>
+          <!-- Control buttons -->
+          <div id="yyBtnContainer">
+            <button class="btn mr-2 mb-3 button-size active" onclick="filterSelection('0000')">All</button>
           </div>
         </div>
-        <div class="col-12 col-sm-4 col-md-4 col-lg-2 col-xl-2 mt-2 mb-3">
-          <div class="dropdown">
-            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-              Select Month
-            </button>
-            <div class="dropdown-menu" onchange="change()">
-              <button class="dropdown-item" value="0">All</button>
-              <button class="dropdown-item" value="1">January</button>
-              <button class="dropdown-item" value="2">February</button>
-              <button class="dropdown-item" value="3">March</button>
-              <button class="dropdown-item" value="4">April</button>
-              <button class="dropdown-item" value="5">May</button>
-              <button class="dropdown-item" value="6">June</button>
-              <button class="dropdown-item" value="7">July</button>
-              <button class="dropdown-item" value="8">August</button>
-              <button class="dropdown-item" value="9">September</button>
-              <button class="dropdown-item" value="10">October</button>
-              <button class="dropdown-item" value="11">November</button>
-              <button class="dropdown-item" value="12">December</button>
-            </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+          <h2 class="mb-3">
+            Select month:
+          </h2>
+          <!-- Control buttons -->
+          <div id="mmBtnContainer">
+            <button class="btn mr-2 mb-3 button-size active" onclick="filterSelection('00')">All</button>
           </div>
         </div>
       </div>
@@ -135,20 +120,12 @@
 
   <!-- *** Event Cards *** -->
   <section>
-    <div class="container">
+    <div class="container mt-2">
       <div class="row" id="event_cards">
 
       </div>
     </div>
   </section>
-
-
-
-
-
-
-
-
 
 
 
@@ -180,7 +157,7 @@
 
 
   <!-- *** Optional JavaScript *** -->
-  <script src="../assets/js/events.js"></script>
+  <script type="text/javascript" src="../assets/js/events.js"></script>
 
   <!-- *** jQuery first, then Popper.js, then Bootstrap JS *** -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

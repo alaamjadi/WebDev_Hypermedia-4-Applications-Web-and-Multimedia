@@ -9,6 +9,10 @@
     margin-top: 65px;
 }
 
+.button-size {
+    width: 60px !important;
+}
+
 #card_events{
     height: 450px;
 }

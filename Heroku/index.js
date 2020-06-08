@@ -41,17 +41,21 @@ swaggerTools.initializeMiddleware(swaggerDoc, function (middleware) {
   app.use(serveStatic(__dirname + "/public"));
 
   // Start the server
-  setupDataLayer().then(() => {
-    http.createServer(app).listen(serverPort, function () {
-      console.log(
-        "Your server is listening on port %d (http://localhost:%d)",
-        serverPort,
-        serverPort
-      );
-      console.log(
-        "Swagger-ui is available on http://localhost:%d/docs",
-        serverPort
-      );
+  setupDataLayer()
+    .then(() => {
+      http.createServer(app).listen(serverPort, function () {
+        console.log(
+          "Your server is listening on port %d (http://localhost:%d)",
+          serverPort,
+          serverPort
+        );
+        console.log(
+          "Swagger-ui is available on http://localhost:%d/docs",
+          serverPort
+        );
+      });
+    })
+    .catch(function (error) {
+      console.log("Starting DataLayer and Server failed: ", error);
     });
-  });
 });
