@@ -78,16 +78,16 @@ h3 {
 /* Card Hover and Description*/
 .cus_card:hover .card-body,
 .cus_card:hover .card-title,
-.cus_card:hover a:link {
+.cus_card:hover a:link, 
+.cus_card:hover .card-text{
   background-color: #b30000;
   color: white;
   text-decoration: none;
   font-weight: bold;
 }
 
-.short_descr{
+.card-text{
     color: black;
-    text-align: justify;
 }
 
 

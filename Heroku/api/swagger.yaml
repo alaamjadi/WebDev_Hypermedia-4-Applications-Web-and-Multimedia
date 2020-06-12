@@ -13,7 +13,7 @@ info:
   license:
     name: "MIT"
     url: "http://opensource.org/licenses/MIT"
-host: "sophisticatedkids.herokuapp.com"
+host: "aysa-ojoloo.herokuapp.com"
 basePath: "/api"
 tags:
 - name: "Service"
