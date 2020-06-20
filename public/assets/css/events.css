@@ -12,3 +12,15 @@
 .button-size {
     width: 60px !important;
 }
+.cus_btncolor:hover {
+    background-color: #b30000;
+}
+.btn:active {
+    background-color: #3CC200 !important;
+}
+.btn-outline-dark:active{
+    background-color: #3CC200 !important;
+}
+.btn{
+    border: 1px solid black;
+}

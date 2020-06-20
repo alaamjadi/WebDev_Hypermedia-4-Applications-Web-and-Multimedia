@@ -16,12 +16,9 @@
     padding-top: 5px;
     width: 98%;
 }
-
-.cus_btncolor {
-    background-color: #b30000;
-    font-weight: bold;
-
-}
 .cus_btncolor:hover {
-    background-color: #3CC200;
+    background-color: #b30000;
+}
+.btn:active {
+    background-color: #3CC200 !important;
 }

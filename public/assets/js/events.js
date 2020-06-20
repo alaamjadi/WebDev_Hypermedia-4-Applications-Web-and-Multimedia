@@ -9,7 +9,7 @@ const URL = {
 };
 
 // initializing variables
-let varYear = "0000",
+let varYear = "9999",
   varMonth = "00",
   executed1 = false,
   yearSet = new Set(),
@@ -30,11 +30,13 @@ function fetchEventsbyYearMonth(year, month) {
     })
     .then(function (data) {
       data.forEach((element) => {
+        yearSet.add(9999)
         yearSet.add(DateParser(element.event_date).year);
-        monthSet.add(DateParser(element.event_date).month_num);
+        monthSet.add(00)
+        monthSet.add(DateParser(element.event_date).month_num+1);
         pic = JSON.parse(element.photo_address);
         document.getElementById("event_cards").innerHTML += `<div class="mb-4 d-flex justify-content-center col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4"><div class="cus_card"><a href="event.html?event_id=${element.event_id}"><div class="card shadow bg-white rounded-lg h-100"><div class="view overlay"><img class="card-img-top" src="../assets/img/${pic[0]}" alt="Event card photo ${element.event_id}"/></div><div class="card-body"><h3 class="card-title mb-0 mt-0 text-center"> ${element.event_name} </h3><p class = "card-text text-center mt-2 mb-0"> ${element.event_date.slice(0,10)} </p><p class = "card-text text-center mt-0"> ${element.event_date.slice(11,16)} </p><p class = "card-text text-center"> ${element.event_location}</p><p class = "card-text text-justify mt-1"> ${element.short_description}</p></div></div></a></div></div>`;});
-      eventsInit()
+      getButtons()
     })
     .catch(function (error) {
       console.log("Fetch JS failed: ", error);
@@ -54,35 +56,63 @@ function fetchEventsbyYearMonth(year, month) {
 } */
 
 function filterSelection(params) {
-  deletChild("event_cards");
+  yearSet.clear()
+  monthSet.clear()
+  deletChild("yyBtnContainer");
+  deletChild("mmBtnContainer");
   if (params.length == 4) {
-    varYear = params;
-    fetchEventsbyYearMonth(varYear, varMonth);
-    console.log(varYear, varMonth);
+    if (params == '9999') {
+      varYear = params;
+      fetchEventsbyYearMonth(varYear, varMonth);
+     /*  console.log("Year All Selected")
+      console.log(varYear, varMonth); */
+    } else {
+      varYear = params;
+      varMonth = '00';
+      /* console.log('Year ', varYear, 'has been selected!')
+      console.log(varYear, varMonth); */
+      fetchEventsbyYearMonth(varYear, varMonth);
+    }
   } else if (params.length <= 2) {
     varMonth = params;
     fetchEventsbyYearMonth(varYear, varMonth);
-    console.log(varYear, varMonth);
+    /* console.log(varYear, varMonth); */
   } else {
     return null;
   }
 }
 
-// Getting the button values from all events only once
-var eventsInit = (function () {
+var getButtons = (function () {
   return function () {
     while (!executed1) {
-      yearArray   = Array.from(yearSet).sort()
-      monthArray  =  Array.from(monthSet).sort()
+      /* console.log("Year Set", yearSet)
+      console.log("Month Set", monthSet) */
+      yearArray   = Array.from(yearSet).sort().reverse(function(a, b){return a-b})
+      monthArray  =  Array.from(monthSet).sort(function(a, b){return a-b})
+      console.log("Year Array", yearArray)
+      console.log("Month Array", monthArray)
+
       yearArray.forEach(element => {
-        document.getElementById("yyBtnContainer").innerHTML += `<button class="btn mr-2 mb-3 button-size" onclick="filterSelection('${element}')">${element}</button>`
-      });
+        if (element == '9999') {
+          document.getElementById("yyBtnContainer").innerHTML += `<button class="btn btn-outline-dark shadow rounded-lg mr-2 mb-3 button-size cus_btncolor" id="${element}" onclick="filterSelection('${element}')">All</button>`
+        } else {
+          document.getElementById("yyBtnContainer").innerHTML += `<button class="btn btn-outline-dark shadow rounded-lg mr-2 mb-3 button-size cus_btncolor" id="${element}" onclick="filterSelection('${element}')">${element}</button>`
+        }
+      })
+      document.getElementById(varYear).classList.add('active')
+      /* document.getElementById("yyBtnContainer").innerHTML += `<button class="btn btn-outline-dark shadow rounded-lg mr-2 mb-3 button-size cus_btncolor" id="${}" onclick="filterSelection('${element}')">${element}</button>` */
+      
       monthArray.forEach(element => {
-        document.getElementById("mmBtnContainer").innerHTML += `<button class="btn mr-2 mb-3 button-size" onclick="filterSelection('${element+1}')">${month_short[element]}</button>`
-      });
+        if (element == '00') {
+          document.getElementById("mmBtnContainer").innerHTML += `<button class="btn btn-outline-dark shadow rounded-lg mr-2 mb-3 button-size cus_btncolor" id="${element}" onclick="filterSelection('${element}')">All</button>`
+        } else {
+          document.getElementById("mmBtnContainer").innerHTML += `<button class="btn btn-outline-dark shadow rounded-lg mr-2 mb-3 button-size cus_btncolor" id="${element}" onclick="filterSelection('${element}')">${month_short[element-1]}</button>`
+        }
+      })
+      document.getElementById(varMonth).classList.add('active')
         executed1 = true
     }
-  };
+  }
 })();
 
 function DateParser(input_string_date) {
@@ -103,4 +133,3 @@ function deletChild(id_element) {
     child = e.lastElementChild;
   }
 }
-

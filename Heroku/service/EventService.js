@@ -105,7 +105,7 @@ exports.eventsGET = function () {
  * returns List
  **/
 exports.eventsYearMonthGET = function(year,month) {
-  if (year == "0000" && month=="00") {
+  if (year == "9999" && month=="00") {
     return sqlDb("events")
     .orderBy("event_date", "desc")
     .then((data) => {
@@ -116,7 +116,7 @@ exports.eventsYearMonthGET = function(year,month) {
     .catch(function (error) {
       console.log("Endpoint eventsGET failed: ", error);
     });
-  } else if (year =="0000" && month !== "00") {
+  } else if (year =="9999" && month !== "00") {
     return sqlDb("events")
     .orderBy("event_date", "desc")
     .whereRaw(`EXTRACT(MONTH FROM "event_date")::INTEGER = ?`, month)
@@ -135,7 +135,7 @@ exports.eventsYearMonthGET = function(year,month) {
     .catch(function (error) {
       console.log("Request failed: ", error);
     });
-  } else if (year !=="0000" && month == "00") {
+  } else if (year !=="9999" && month == "00") {
     return sqlDb("events")
     .orderBy("event_date", "desc")
     .whereRaw(`EXTRACT(YEAR FROM "event_date")::INTEGER = ?`, year)
