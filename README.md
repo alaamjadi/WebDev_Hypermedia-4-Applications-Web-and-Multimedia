@@ -1,3 +1,5 @@
+# Hypermedia for applications - SophisticatedKids
+
 # Swagger generated server
 
 ## Overview
