@@ -1,4 +1,4 @@
-# Hypermedia applications - SophisticatedKids
+# Hypermedia Applications - SophisticatedKids
 
 ## Swagger generated server
 
