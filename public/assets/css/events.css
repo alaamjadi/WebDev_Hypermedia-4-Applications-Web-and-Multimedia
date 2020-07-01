@@ -1,5 +1,6 @@
 /* Wide Image + Breadcrumb */
-.jumbotron{
+
+.jumbotron {
     min-height: 300px;
     background-image: url(../img/events_wide.jpg);
     background-repeat: no-repeat;
@@ -12,15 +13,22 @@
 .button-size {
     width: 60px !important;
 }
+
 .cus_btncolor:hover {
     background-color: #b30000;
+    color: white;
+    font-weight: bold;
 }
+
+.cus_btncolor {
+    background-color: white;
+}
+
 .btn:active {
     background-color: #3CC200 !important;
+    font-weight: bold;
 }
-.btn-outline-dark:active{
-    background-color: #3CC200 !important;
-}
-.btn{
+
+.btn {
     border: 1px solid black;
 }
