@@ -1,0 +1,24 @@
+/* Wide Image + Breadcrumb */
+.jumbotron{
+    min-height: 300px;
+    background-image: url(../img/contact_wide.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: scroll;
+    margin-top: 65px;
+}
+
+#forms{
+    min-height: 300px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    padding-top: 5px;
+    width: 98%;
+}
+.cus_btncolor:hover {
+    background-color: #b30000;
+}
+.btn:active {
+    background-color: #3CC200 !important;
+}
