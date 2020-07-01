@@ -1,0 +1,358 @@
+swagger: '2.0'
+info:
+  version: '1.0.0'
+  title: Milcare Foundations Onlus API
+  description: This is an open API for Milcare Foundations Onlus website developed by Sophisticated Kids team
+  termsOfService: All the material on the website is for educational purpose only, any commercial use is prohibited.
+  contact:
+    name: Sophisticated Kids
+    url:  https://gitlab.com/alaamjadi/HSK
+  license: 
+    name: MIT
+    url: http://opensource.org/licenses/MIT
+host: sophisticatedkids.herokuapp.com
+schemes:
+  - 'https'
+  - 'http'
+basePath: '/api'
+produces:
+  - application/json
+consumes:
+  - application/json
+tags:
+  - name: "Event"
+    description: 'Informations Related to the event'
+  - name: "Services"
+    description: 'Information Related to the services'
+  - name: "Staff"
+    description: 'Related to the staff members'
+paths:
+  /events:
+    get:
+      tags:
+      - "Event"
+      operationId: "getEvents"
+      summary: "Event names and short descriptions in the database"
+      description: 'Returns the names, short descriptions, and UUIDS of all events'
+      produces:
+      - "application/json"
+      responses:
+        '200':
+          description: "Operation OK"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Event"
+          examples:
+            application/json:  {
+              "title": "event1",
+              "months": "January",
+              "pictureURL": "https://images1.jpg",
+              "Organiser": [
+                "Najib"
+              ]
+            }
+        '404':
+          description: "No Event found in the database"
+          schema:
+            $ref: "#/definitions/No_Object_Error"
+      x-swagger-router-controller: "Event"
+  /events/eventfindby:
+    get:
+      tags:
+        - "Event"
+      operationId: getEvent
+      summary: Finds an event by ID
+      description: returns an event
+      produces:
+      - "application/json"
+      parameters:
+        - name: "name"
+          in: "query"
+          description: "ID of event to return"
+          required: true
+          type: "string"
+          x-example: "event title"
+        - name: "month"
+          in: "query"
+          description: "date of the event to return"
+          required: true
+          type: "string"
+          enum:
+          - "january"
+          - "february"
+          - "mars"
+          - "april"
+          - "may"
+          - "jun"
+          - "july"
+          - "august"
+          - "september"
+          - "october"
+          - "november"
+          - "december"
+          x-example: "mars"
+      responses:
+        200:
+          description: "Operation OK"
+          schema:
+          type: "array"
+            $ref: '#/definitions/Event'
+        404 :
+          description: "No events found in the database"
+          schema:
+            $ref: '#/definitions/No_Object_Error'
+      x-swagger-router-controller: "Event"
+    delete:
+      tags:
+      - "Event"
+      summary: "Deletes an Event that was cancelled"
+      description: "It's possible to get an error like bad request from swagger"
+      operationId: "deleteEvent"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "event"
+        in: "path"
+        description: "ID of the Event to delete"
+        required: true
+        type: "string"
+        x-example: 4
+      responses:
+        200:
+          description: "Operation OK."
+          schema:
+            $ref: "#/definitions/MessageSuccessed"
+        404:
+          description: "No Event with this ID found in the database"
+          schema:
+            $ref: "#/definitions/No_Object_Error"
+      x-swagger-router-controller: "Event"
+  /services:
+    get:
+      tags:
+        - Services
+      operationId: getServices
+      summary: Service names and short descriptions
+      description: 'Returns the names, short descriptions, and UUIDS of all services'
+      parameters:
+        - name: offset
+          in: query
+          description: Pagination offset. Default is 0.
+          type: integer
+        - name: limit
+          in: query
+          description: Maximum number of items per page. Default is 20 and cannot exceed 100.
+          type: integer
+      responses:
+        200:
+          description: Collection of services
+          schema:
+            $ref: '#/definitions/services'
+        404:
+          description: "No servies found in database"
+          schema:
+            $ref: '#/definitions/No_Object_Error'
+  /services/{serviceId}:
+    get:
+      tags:
+        - Services
+      operationId: getService
+      summary: Finds a service by ID
+      description: returns a service
+      parameters:
+        - name: serviceId
+          in: path
+          description: ID of service to return
+          required: true
+          type: string
+      responses:
+        200:
+          description: Operation OK
+          schema:
+            $ref: '#/definitions/service'
+        404:
+          description: "this is service id does not exist in database"
+          schema:
+            $ref: '#/definitions/No_Object_Error'
+  /staff:
+    get:
+      tags:
+        - "Staff"
+      operationId: "getStaff"
+      summary: Staff names and roles
+      description: 'Returns the names, and UUIDS of all staff'
+      produces:
+      - "application/json"
+      parameters:
+        - name: offset
+          in: query
+          description: Pagination offset. Default is 0.
+          type: integer
+        - name: limit
+          in: query
+          description: Maximum number of items per page. Default is 20 and cannot exceed 100.
+          type: integer
+      responses:
+        200:
+          description: "Operation OK"
+          schema:
+            $ref: '#/definitions/staff'
+        404:
+          description: "Staff memeber was not found on the database"
+          schema:
+            $ref: '#/definitions/No_Object_Error'
+      x-swagger-router-controller: "Staff"
+  /staff/{staffId}:
+    get:
+      tags:
+        - "Staff"
+      operationId: getMember
+      summary: Finds a staff member by ID
+      description: returns a staff member
+      parameters:
+        - name: staffId
+          in: path
+          description: ID of staff member to return
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Operation OK"
+          schema:
+            $ref: '#/definitions/member'
+        404:
+          description: "Staff memeber was not found on the database"
+          schema:
+            $ref: '#/definitions/No_Object_Error'
+      x-swagger-router-controller: "Staff"
+    post:
+      tags:
+      - "Staff"
+      summary: "Adds a new staff member to the team"
+      description: "Adding new staff memeber to the team"
+      operationId: "addStaffMember"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "staff"
+        in: "query"
+        description: "new memeber"
+        type: "string"
+        required: true
+        x-example: "1"
+      responses:
+        200:
+          description: "Operation OK."
+          schema:
+            $ref: "#/definitions/MessageSuccessed"
+        401:
+          description: "Not possible to add new memeber please try later on "
+          schema:
+            $ref: "#/definitions/Error_auth"
+      x-swagger-router-controller: "Staff"
+    delete:
+      tags:
+      - "Staff"
+      summary: "delete a memeber"
+      description: "Removes all the activities of that member"
+      operationId: "deletStaffMemeber"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "Operation OK."
+          schema:
+            $ref: "#/definitions/MessageSuccessed"
+        401:
+          description: "Not possible to delete a memeber please try later on "
+          schema:
+            $ref: "#/definitions/Error_auth"
+      x-swagger-router-controller: "Staff"
+definitions:
+  MessageSuccessed:
+    type: "object"
+    properties:
+      success:
+        type: "boolean"
+    example:
+      success: true
+    required:
+      - success
+  No_Object_Error:
+    type: "object"
+    properties:
+      success:
+        type: "boolean"
+      errorMessage:
+        type: "string"
+    example:
+      success: false
+      errorMessage: "No objects found in the Db."
+    required:
+      - success
+      - errorMessage
+  Error_auth:
+    type: "object"
+    properties:
+      success:
+        type: "boolean"
+      errorMessage:
+        type: "string"
+    example:
+      success: false
+      errorMessage: "You are not allowed to do this operation."
+    required:
+      - success
+      - errorMessage
+  events:
+    type: "object"
+    properties:
+      date:
+        type: "string"
+        enum:
+          - "january"
+          - "february"
+          - "mars"
+          - "april"
+          - "may"
+          - "jun"
+          - "july"
+          - "august"
+          - "september"
+          - "october"
+          - "november"
+          - "december"
+      staff:
+        type : "array"
+        description : "staff member involved in this event"
+      summary:
+        type: string
+        example: 'The new autumn socializing workshop organized by the Lu.VI Onlus Foundation will be presented.'
+      description:
+        type: string
+        example: 'ATuesday and that the Wednesday in order to accommodate all the applications received.'
+      image:
+        type: string
+        example: 'https://sophisticatedkids.heroku.com/assets/img/events_spring.jpg'
+      organizer:
+        $ref: '#/definitions/staff'
+      presents:
+        $ref: '#/definitions/services'
+  services:
+    type: "object"
+    properties:
+      name:
+        type : "string"
+      description:
+        type: string
+      pictureUrl:
+        type: string
+    example:
+      name: Hospice
+      description : "Hospice is a type of service tha allowed....." 
+      pictureUrl: 'https://sophisticatedkids.heroku.com/assets/img/events_spring.jpg'
+    required:
+      - name
+      - description
+      - pictureUrl
