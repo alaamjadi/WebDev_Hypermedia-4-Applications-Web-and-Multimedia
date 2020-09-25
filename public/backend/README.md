@@ -6,10 +6,10 @@
 
 **Group Name:** SophisticatedKids
 
-| Member    | Role          | First name    | Last Name   | Person Code | Email address                   |
-| --        |--             |--             | --          | --          | --                              |
-| 1         | Administrator | Mohammad      | Ala Amjadi  | 10479915    | mohammad.ala@mail.polimi.it     |
-| 2         | Member        | Aysa          | Javadzad    | 10645103    | aysa.javadzad@mail.polimi.it    |
+| Member    | Role          | First name    | Last Name   | Person Code | Email address |
+| --        |--             |--             | --          | --          | --            |
+| 1         | Administrator | Mohammad      | Ala Amjadi  | -           | -             |
+| 2         | Member        | -             | -           | -           | -             |
 
 
 
@@ -204,10 +204,10 @@ We used a relation database called PostgreSQL. The relation model fits good in a
 
 ### Task assignment
 
-| Member                | Front-end | OpenAPI       | Backend       |
-| --                    |--         |--             | --            |
-| Mohammad  Ala Amjadi  | 40%       | 50%           | 70%           |
-| Aysa Javadzad         | 60%       | 50%           | 30%           |
+| Member                | Front-end | OpenAPI | Backend |
+| --                    |--         |--       | --      |
+| Mohammad  Ala Amjadi  | 70%       | 100%    | 100%    |
+| -                     | 30%       | 0%      | 0%      |
 
 ### Analysis of existing API
 For our project we used the following OpenAPI:
@@ -221,8 +221,8 @@ By looking at those examples we got a better idea about OpenAPI. We constantly l
 When we tried to develope the swagger services we realized that we have to change a lot. So we generated many swagger versions. In the end we reached the event page, in order to handle some features (Event filteration) there we were forced to change the swagger again and we have decided to have an extra endpoint for events to retrieve event data by specifying their year and month for the events page, in case the events were scaling up in our website. At the end, by testing the API over and over and going forward with the developement we were sure that our final specification became a fit to our application.
 
 ### Learning outcome
-In this project Aysa and Mohammad both have learned how to create an OpenAPI Specification and how to implement it using a Node.js server.
-- Aysa improved her HTML, CSS and SQL skills while she learned more JavaScript specially using Fetch API and Promisses.
+In this project anonymous member and Mohammad both have learned how to create an OpenAPI Specification and how to implement it using a Node.js server.
+- Anonymous member improved her HTML, CSS and SQL skills while she learned more JavaScript specially using Fetch API and Promisses.
 - Mohammad improved his JavaScript skills while he learned about DOM, Bootstrap and SQL from scratch. Mohamamd has plan to develope and implement simillar projects in the future.
 
 Some unanswered questions are:
