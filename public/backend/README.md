@@ -6,10 +6,10 @@
 
 **Group Name:** SophisticatedKids
 
-| Member    | Role          | First name    | Last Name   | Person Code | Email address |
-| --        |--             |--             | --          | --          | --            |
-| 1         | Administrator | Mohammad      | Ala Amjadi  | -           | -             |
-| 2         | Member        | -             | -           | -           | -             |
+| Member    | Role              | First name    | Last Name   | Person Code | Email address |
+| --        |--                 |--             | --          | --          | --            |
+| 1         | Administrator     | Mohammad      | Ala Amjadi  | -           | -             |
+| 2         | Anonymous Member  | -             | -           | -           | -             |
 
 
 
@@ -207,7 +207,7 @@ We used a relation database called PostgreSQL. The relation model fits good in a
 | Member                | Front-end | OpenAPI | Backend |
 | --                    |--         |--       | --      |
 | Mohammad  Ala Amjadi  | 70%       | 100%    | 100%    |
-| -                     | 30%       | 0%      | 0%      |
+| Anonymous Member      | 30%       | 0%      | 0%      |
 
 ### Analysis of existing API
 For our project we used the following OpenAPI:
