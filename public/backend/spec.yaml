@@ -8,11 +8,11 @@ info:
     \ any commercial use is prohibited."
   contact:
     name: "Sophisticated Kids"
-    url: "https://gitlab.com/alaamjadi/HSK"
+    url: "https://github.com/alaamjadi/WebDev_Hypermedia-4-Applications-Web-and-Multimedia"
   license:
     name: "MIT"
     url: "http://opensource.org/licenses/MIT"
-host: "mil-care.herokuapp.com"
+host: "https://milcare-association-dynamic-website.onrender.com/"
 basePath: "/api"
 tags:
 - name: "Service"

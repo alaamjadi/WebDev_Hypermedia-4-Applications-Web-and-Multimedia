@@ -9,8 +9,8 @@
 | Member    | Role              | First name    | Last Name   | Person Code | Email address |
 | --        |--                 |--             | --          | --          | --            |
 | 1         | Administrator     | Mohammad      | Ala Amjadi  | -           | -             |
-| 2         | Anonymous Member  | -             | -           | -           | -             |
-
+| 2         | Student member    | Aysa          | Javadzad    | -           | -             |
+| 3         | Student member*   | Najib         | El Guertit  | -           | -             |
 
 
 ## Links to other deliverables
@@ -19,7 +19,7 @@
 - Deliverable D2: the YAML or JSON file containing the specification of the app API can be found at [this address](spec.yaml ":ignore title").
 - Deliverable D3: the SwaggerUI page of the same API is available at [this address](swaggerui ":ignore title").
 - Deliverable D4: the source code of D0 is available as a zip file at [this address](app.zip ":ignore title").
-- Deliverable D5: the address of the online source control repository is available [this address](https://github.com/alaamjadi/HSK). We hereby declare that this is a private repository and, upon request, we will give access to the instructors.
+- Deliverable D5: the address of the online source control repository is available [this address](https://github.com/alaamjadi/WebDev_Hypermedia-4-Applications-Web-and-Multimedia). We hereby declare that this is a private repository and, upon request, we will give access to the instructors.
 
 
 
@@ -206,8 +206,10 @@ We used a relation database called PostgreSQL. The relation model fits good in a
 
 | Member                | Front-end | OpenAPI | Backend |
 | --                    |--         |--       | --      |
-| Mohammad  Ala Amjadi  | 70%       | 100%    | 100%    |
-| Anonymous Member      | 30%       | 0%      | 0%      |
+| Mohammad  Ala Amjadi  | 60%       | 75%     | 90%     |
+| Aysa Javadzad         | 30%       | 10%     | 10%     |
+| Najib El Guertit      | 10%       | 15%     | 0%      |
+
 
 ### Analysis of existing API
 For our project we used the following OpenAPI:

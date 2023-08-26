@@ -1,7 +1,7 @@
 {
   "name": "MilCar Foundations",
   "description": "A project done by sophisticated kids group from Politecnico di Milano",
-  "repository": "https://gitlab.com/alaamjadi/HYP2",
+  "repository": "https://github.com/alaamjadi/WebDev_Hypermedia-4-Applications-Web-and-Multimedia",
   "logo": "https://cdn.rawgit.com/heroku/node-js-getting-started/master/public/node.svg",
   "keywords": ["HTML", "CSS", "JavaScript", "Ajax", "Swagger", "OpenAPI", "Nodejs", "PostgreSQL", "Heroku"],
   "image": "heroku/nodejs"

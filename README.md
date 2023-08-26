@@ -1,7 +1,10 @@
 # Hypermedia Applications - SophisticatedKids
 
-#### Opening the app
-[Deployment on Heroku](https://mil-care.herokuapp.com)
+## Deployments
+
+### Deployment on Render
+
+[Deployment on Render](https://milcare-association-dynamic-website.onrender.com/)
 
 ## Swagger generated server
 
@@ -165,10 +168,10 @@ The node packages that were used:
 
 We used localhost testing environment for development. The environment composed by Node.js, Postgres and PGAdmin.
 
-The production environment is hosted on Heroku. They provide a ready to use Postgres database and a NodeJS environment.
+The production environment is hosted on Render. They provide a ready to use Postgres database and a NodeJS environment.
 
 
-![Heroku Deployment](public/backend/img/heroku-deployment.png "Heroku Deployment")
+![Render Deployment](public/backend/img/render-deployment.jpg "Render Deployment")
 
 
 ### Project structure
@@ -242,7 +245,7 @@ In this project anonymous member and Mohammad both have learned how to create an
 
 Some unanswered questions are:
 - In our project we have inserted into the db a small number of data. How scalability and performance go with bigger data? Are there other methods to implement a more performant version?
-- We used Heroku to provide our application. How can we migrate to another PasS (Platform as a Service) for example GCP (Google Cloud Platform.) What measurements we have to take into account to choose the best platform solution?
+- We used Render to provide our application. How can we migrate to another PasS (Platform as a Service) for example GCP (Google Cloud Platform.) What measurements we have to take into account to choose the best platform solution?
 - How should we handle the security part of ou application? Should we change our source code or there are other ways to handle the security more smoothly?
 - Are there any better technology solutions beside the one we had used?
 
@@ -254,4 +257,4 @@ This resource can be used freely if integrated or build upon in personal project
 
 Follow Mohammad: [LinkedIn](https://www.linkedin.com/in/alaamjadi/), [Twitter](https://twitter.com/AlaAmjadi)
 
-[© SophisticatedKids 2020](https://mil-care.herokuapp.com/backend/)
+[© SophisticatedKids 2020](https://milcare-association-dynamic-website.onrender.com/backend/)

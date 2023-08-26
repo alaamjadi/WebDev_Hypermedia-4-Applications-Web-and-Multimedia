@@ -1,34 +1,35 @@
 openapi: 3.0.1
 info:
   title: MilCare Foundation Onlus API
-  description: This is an open API for Milcare Foundations Onlus website developed
-    by Sophisticated Kids team
+  description: >-
+    This is an open API for Milcare Foundations Onlus website developed by
+    Sophisticated Kids team
   contact:
     name: Sophisticated Kids
-    url: https://gitlab.com/alaamjadi/HSK
+    url: >-
+      https://github.com/alaamjadi/WebDev_Hypermedia-4-Applications-Web-and-Multimedia
   license:
     name: MIT
     url: http://opensource.org/licenses/MIT
-  version: 1.0.6
+  version: 2.0.0-oas3
 servers:
-- url: https://mil-care.herokuapp.com/api
-- url: http://mil-care.herokuapp.com/api
+  - url: https://milcare-association-dynamic-website.onrender.com/api
 tags:
-- name: Service
-  description: Services of the association
-- name: Event
-  description: Events of the association
-- name: Person
-  description: Members of the association
+  - name: Service
+    description: Services of the association
+  - name: Event
+    description: Events of the association
+  - name: Person
+    description: Members of the association
 paths:
   /Events:
     get:
       tags:
-      - Event
+        - Event
       summary: List of all the events of the association
       operationId: eventsGET
       responses:
-        200:
+        '200':
           description: successful operation
           content:
             application/json:
@@ -36,33 +37,33 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Event'
-        400:
+        '400':
           description: Unexpected error
           content: {}
       x-swagger-router-controller: Event
   /Events/Y/{Year}/M/{Month}:
     get:
       tags:
-      - Event
+        - Event
       summary: List of events of a month in a specific year
       operationId: eventsYearMonthGET
       parameters:
-      - name: Year
-        in: path
-        description: Number of the Year of the events for filtering
-        required: true
-        schema:
-          type: integer
-          format: int64
-      - name: Month
-        in: path
-        description: Number of the month of the events for filtering
-        required: true
-        schema:
-          type: integer
-          format: int64
+        - name: Year
+          in: path
+          description: Number of the Year of the events for filtering
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: Month
+          in: path
+          description: Number of the month of the events for filtering
+          required: true
+          schema:
+            type: integer
+            format: int64
       responses:
-        200:
+        '200':
           description: successful operation
           content:
             application/json:
@@ -70,57 +71,57 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Event'
-        400:
+        '400':
           description: Unexpected error
           content: {}
-        404:
+        '404':
           description: Invalid month
           content: {}
       x-swagger-router-controller: Event
   /Events/{CodeEvent}:
     get:
       tags:
-      - Event
+        - Event
       summary: Find an event with the event code
       operationId: eventsCodeEventGET
       parameters:
-      - name: CodeEvent
-        in: path
-        description: Code of the event that we want
-        required: true
-        schema:
-          type: integer
-          format: int64
+        - name: CodeEvent
+          in: path
+          description: Code of the event that we want
+          required: true
+          schema:
+            type: integer
+            format: int64
       responses:
-        200:
+        '200':
           description: successful operation
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Event'
-        400:
+        '400':
           description: Unexpected error
           content: {}
-        404:
+        '404':
           description: Invalid id
           content: {}
       x-swagger-router-controller: Event
   /Events/{CodeEvent}/Services:
     get:
       tags:
-      - Event
+        - Event
       summary: List of all services of an event
       operationId: eventsCodeEventServicesGET
       parameters:
-      - name: CodeEvent
-        in: path
-        description: Code of an event that we want the related services
-        required: true
-        schema:
-          type: integer
-          format: int64
+        - name: CodeEvent
+          in: path
+          description: Code of an event that we want the related services
+          required: true
+          schema:
+            type: integer
+            format: int64
       responses:
-        200:
+        '200':
           description: successful operation
           content:
             application/json:
@@ -128,49 +129,49 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Service'
-        400:
+        '400':
           description: Unexpected error
           content: {}
-        404:
+        '404':
           description: invalid Code
           content: {}
       x-swagger-router-controller: Event
   /Events/{CodeEvent}/Person:
     get:
       tags:
-      - Event
+        - Event
       summary: List of all persons of an event
       operationId: eventsCodeEventPersonGET
       parameters:
-      - name: CodeEvent
-        in: path
-        description: Code of an event that we want the related persons
-        required: true
-        schema:
-          type: integer
-          format: int64
+        - name: CodeEvent
+          in: path
+          description: Code of an event that we want the related persons
+          required: true
+          schema:
+            type: integer
+            format: int64
       responses:
-        200:
+        '200':
           description: successful operation
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Person'
-        400:
+        '400':
           description: Unexpected error
           content: {}
-        404:
+        '404':
           description: invalid Code
           content: {}
       x-swagger-router-controller: Event
   /Person:
     get:
       tags:
-      - Person
+        - Person
       summary: List of all the persons of the association
       operationId: personGET
       responses:
-        200:
+        '200':
           description: successful operation
           content:
             application/json:
@@ -178,54 +179,54 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Person'
-        400:
+        '400':
           description: Unexpected error
           content: {}
       x-swagger-router-controller: Person
   /Person/{CodePerson}:
     get:
       tags:
-      - Person
+        - Person
       summary: Find a person with the person code
       operationId: personCodePersonGET
       parameters:
-      - name: CodePerson
-        in: path
-        description: Code of a person that we want
-        required: true
-        schema:
-          type: integer
-          format: int64
+        - name: CodePerson
+          in: path
+          description: Code of a person that we want
+          required: true
+          schema:
+            type: integer
+            format: int64
       responses:
-        200:
+        '200':
           description: successful operation
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Person'
-        400:
+        '400':
           description: Unexpected error
           content: {}
-        404:
+        '404':
           description: invalid CodePerson
           content: {}
       x-swagger-router-controller: Person
   /Person/{CodePerson}/Services:
     get:
       tags:
-      - Person
+        - Person
       summary: List of all services of a person
       operationId: personCodePersonServicesGET
       parameters:
-      - name: CodePerson
-        in: path
-        description: Code of a person that we want the related services
-        required: true
-        schema:
-          type: integer
-          format: int64
+        - name: CodePerson
+          in: path
+          description: Code of a person that we want the related services
+          required: true
+          schema:
+            type: integer
+            format: int64
       responses:
-        200:
+        '200':
           description: successful operation
           content:
             application/json:
@@ -233,29 +234,29 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Service'
-        400:
+        '400':
           description: Unexpected error
           content: {}
-        404:
+        '404':
           description: invalid person code
           content: {}
       x-swagger-router-controller: Person
   /Person/{CodePerson}/Events:
     get:
       tags:
-      - Person
+        - Person
       summary: List of all events of a person
       operationId: personCodePersonEventsGET
       parameters:
-      - name: CodePerson
-        in: path
-        description: Code of a person that we want the related events
-        required: true
-        schema:
-          type: integer
-          format: int64
+        - name: CodePerson
+          in: path
+          description: Code of a person that we want the related events
+          required: true
+          schema:
+            type: integer
+            format: int64
       responses:
-        200:
+        '200':
           description: successful operation
           content:
             application/json:
@@ -263,21 +264,21 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Event'
-        400:
+        '400':
           description: Unexpected error
           content: {}
-        404:
+        '404':
           description: invalid person code
           content: {}
       x-swagger-router-controller: Person
   /Services:
     get:
       tags:
-      - Service
+        - Service
       summary: List of all the services of the association
       operationId: servicesGET
       responses:
-        200:
+        '200':
           description: successful operation
           content:
             application/json:
@@ -285,54 +286,54 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Service'
-        400:
+        '400':
           description: Unexpected error
           content: {}
       x-swagger-router-controller: Service
   /Services/{CodeService}:
     get:
       tags:
-      - Service
+        - Service
       summary: Find a service with the service code
       operationId: servicesCodeServiceGET
       parameters:
-      - name: CodeService
-        in: path
-        description: Code of a service that we want
-        required: true
-        schema:
-          type: integer
-          format: int64
+        - name: CodeService
+          in: path
+          description: Code of a service that we want
+          required: true
+          schema:
+            type: integer
+            format: int64
       responses:
-        200:
+        '200':
           description: operation was successful
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Service'
-        400:
+        '400':
           description: Unexpected error
           content: {}
-        404:
+        '404':
           description: invalid Name
           content: {}
       x-swagger-router-controller: Service
   /Services/{CodeService}/Events:
     get:
       tags:
-      - Service
+        - Service
       summary: List of all events of a service
       operationId: servicesCodeServiceEventsGET
       parameters:
-      - name: CodeService
-        in: path
-        description: Code of a service that we want the related events
-        required: true
-        schema:
-          type: integer
-          format: int64
+        - name: CodeService
+          in: path
+          description: Code of a service that we want the related events
+          required: true
+          schema:
+            type: integer
+            format: int64
       responses:
-        200:
+        '200':
           description: successful operation
           content:
             application/json:
@@ -340,29 +341,29 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Event'
-        400:
+        '400':
           description: Unexpected error
           content: {}
-        404:
+        '404':
           description: invalid Name
           content: {}
       x-swagger-router-controller: Service
   /Services/{CodeService}/Person:
     get:
       tags:
-      - Service
+        - Service
       summary: List of all persons of a service
       operationId: servicesCodeServicePersonGET
       parameters:
-      - name: CodeService
-        in: path
-        description: Code of a service that we want the related persons
-        required: true
-        schema:
-          type: integer
-          format: int64
+        - name: CodeService
+          in: path
+          description: Code of a service that we want the related persons
+          required: true
+          schema:
+            type: integer
+            format: int64
       responses:
-        200:
+        '200':
           description: successful operation
           content:
             application/json:
@@ -370,10 +371,10 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Person'
-        400:
+        '400':
           description: Unexpected error
           content: {}
-        404:
+        '404':
           description: invalid Name
           content: {}
       x-swagger-router-controller: Service
@@ -382,13 +383,13 @@ components:
     Event:
       title: Event
       required:
-      - CodeEvent
-      - Date
-      - Images
-      - Location
-      - LongDescription
-      - Name
-      - ShortDescription
+        - CodeEvent
+        - Date
+        - Images
+        - Location
+        - LongDescription
+        - Name
+        - ShortDescription
       type: object
       properties:
         CodeEvent:
@@ -413,13 +414,13 @@ components:
       example:
         CodeEvent: 1
         Name: Presentation of service X
-        Date: 2020-05-25T17:00:00
+        Date: '2020-05-25T17:00:00.000Z'
         Location: Milan
         Images:
-        - Image1
-        - Image2
-        - Image3
-        - Image4
+          - Image1
+          - Image2
+          - Image3
+          - Image4
         ShortDescription: Short description of the event
         LongDescription: Long description of the event
       xml:
@@ -427,11 +428,11 @@ components:
     Person:
       title: Person
       required:
-      - CodePerson
-      - Images
-      - LongDescription
-      - Name
-      - Role
+        - CodePerson
+        - Images
+        - LongDescription
+        - Name
+        - Role
       type: object
       properties:
         CodePerson:
@@ -453,17 +454,17 @@ components:
         Name: FistName LastName
         Role: Volunteer
         Images:
-        - Image1
+          - Image1
         LongDescription: Biography
       xml:
         name: Person
     Service:
       title: Service
       required:
-      - Images
-      - LongDescription
-      - Name
-      - ShortDescription
+        - Images
+        - LongDescription
+        - Name
+        - ShortDescription
       type: object
       properties:
         Name:
@@ -481,13 +482,13 @@ components:
       example:
         Name: Hospice
         Images:
-        - Image1
-        - Image2
-        - Image3
-        - Image4
-        - Image4
-        - Image5
-        - Image6
+          - Image1
+          - Image2
+          - Image3
+          - Image4
+          - Image4
+          - Image5
+          - Image6
         ShortDescription: short description of the service
         LongDescription: Long description of the service
       xml:
@@ -495,7 +496,7 @@ components:
     Image:
       title: Image
       required:
-      - Image1
+        - Image1
       type: object
       properties:
         Image1:
