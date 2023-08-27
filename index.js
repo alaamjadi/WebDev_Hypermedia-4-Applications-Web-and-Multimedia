@@ -3,7 +3,8 @@
 var fs = require("fs"),
     path = require("path"),
     http = require("http");
-
+    
+// var oas3Tools = require('oas3-tools');
 var app = require("connect")();
 var redirect = require('connect-redirection');
 var swaggerTools = require("swagger-tools");
