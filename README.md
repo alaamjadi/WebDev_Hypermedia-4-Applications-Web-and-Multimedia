@@ -224,11 +224,11 @@ We used a relation database called PostgreSQL. The relation model fits good in a
 
 ### Task assignment
 
-| Member                | Front-end | OpenAPI | Backend |
-| --                    |--         |--       | --      |
-| Mohammad  Ala Amjadi  | 60%       | 80%     | 90%     |
-| Aysa Javadzad         | 30%       | 10%     | 10%     |
-| Najib El Guertit      | 10%       | 10%     | 0%      |
+| Member                | Usability | Front-end | OpenAPI | Backend | User Testing (Bonus) |
+| --                    | --        | --        | --      | --      | --                   |
+| Mohammad  Ala Amjadi  | 40%       | 50%       | 70%     | 90%     | 10%                  |
+| Aysa Javadzad         | 30%       | 40%       | 20%     | 10%     | 90%                  |
+| Najib El Guertit      | 30%       | 10%       | 10%     | 0%      | 0%                   |
 
 
 ### Analysis of existing API
