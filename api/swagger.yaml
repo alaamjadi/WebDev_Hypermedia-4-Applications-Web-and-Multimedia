@@ -12,7 +12,7 @@ info:
   license:
     name: "MIT"
     url: "http://opensource.org/licenses/MIT"
-host: "mil-care.herokuapp.com"
+host: "milcare-association-dynamic-website.onrender.com"
 basePath: "/api"
 tags:
 - name: "Service"

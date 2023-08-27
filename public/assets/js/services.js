@@ -1,6 +1,6 @@
 const URL = {
     ID: "/" + window.location.search.split("=")[1],
-    API: "https://mil-care.herokuapp.com/api",
+    API: "https://milcare-association-dynamic-website.onrender.com/api",
     EVENTS: "/events",
     PERSON: "/person",
     SERVICES: "/services",

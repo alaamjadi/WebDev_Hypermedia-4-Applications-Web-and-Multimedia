@@ -150,10 +150,10 @@ The node packages that were used:
 
 We used localhost testing environment for development. The environment composed by Node.js, Postgres and PGAdmin.
 
-The production environment is hosted on Heroku. They provide a ready to use Postgres database and a NodeJS environment.
+The production environment is hosted on Render Cloud. They provide a ready to use Postgres database and a NodeJS environment.
 
 
-![Heroku Deployment](img/heroku-deployment.png "Heroku Deployment")
+![Render Deployment](img/render-deployment.jpg "Render Deployment")
 
 
 ### Project structure
@@ -198,6 +198,7 @@ We skipped this part since we did not need to handle sessions and it was not req
 
 We used a relation database called PostgreSQL. The relation model fits good in a project were you have to manage various associations between different models. 
 
+To connect the DB to the application, the `DATABASE_URL` key along with a value with the following format: `postgres://USER:PASSWORD@HOST:PORT/DATABASE` should be specified in the environment variables of your cloud service.
 
 
 ## Other information
@@ -229,6 +230,6 @@ In this project anonymous member and Mohammad both have learned how to create an
 
 Some unanswered questions are:
 - In our project we have inserted into the db a small number of data. How scalability and performance go with bigger data? Are there other methods to implement a more performant version?
-- We used Heroku to provide our application. How can we migrate to another PasS (Platform as a Service) for example GCP (Google Cloud Platform.) What measurements we have to take into account to choose the best platform solution?
+- We used Render to provide our application. How can we migrate to another PasS (Platform as a Service) for example GCP (Google Cloud Platform.) What measurements we have to take into account to choose the best platform solution?
 - How should we handle the security part of ou application? Should we change our source code or there are other ways to handle the security more smoothly?
 - Are there any better technology solutions beside the one we had used?

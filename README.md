@@ -38,8 +38,8 @@ This project leverages the mega-awesome [swagger-tools](https://github.com/apige
 | Member    | Role              | First name    | Last Name   | Person Code | Email address |
 | --        |--                 |--             | --          | --          | --            |
 | 1         | Administrator     | Mohammad      | Ala Amjadi  | -           | -             |
-| 2         | Anonymous Member  | -             | -           | -           | -             |
-
+| 2         | Member            | Aysa          | Javadzad    | -           | -             |
+| 3         | Member            | Najib         | El Guertit  | -           | -             |
 
 ## Specification
 
@@ -224,8 +224,9 @@ We used a relation database called PostgreSQL. The relation model fits good in a
 
 | Member                | Front-end | OpenAPI | Backend |
 | --                    |--         |--       | --      |
-| Mohammad  Ala Amjadi  | 70%       | 100%    | 100%    |
-| Anonymous Member      | 30%       | 0%      | 0%      |
+| Mohammad  Ala Amjadi  | 60%       | 80%     | 90%     |
+| Aysa Javadzad         | 30%       | 10%     | 10%     |
+| Najib El Guertit      | 10%       | 10%     | 0%      |
 
 ### Analysis of existing API
 For our project we used the following OpenAPI:
