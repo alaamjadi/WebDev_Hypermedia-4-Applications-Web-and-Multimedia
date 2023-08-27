@@ -131,6 +131,8 @@ The data layer and OpenAPI data model mapping is as follows:
 
 ![Logical Design](public/backend/img/logical_design.png "Logical Design")
 
+> **_NOTE:_**  To connect the DB to the application, the `DATABASE_URL` key along with a value with the following format: `postgres://USER:PASSWORD@HOST:PORT/DATABASE` should be specified in the environment variables of your cloud service.
+
 
 
 ## Implementation
@@ -227,6 +229,7 @@ We used a relation database called PostgreSQL. The relation model fits good in a
 | Mohammad  Ala Amjadi  | 60%       | 80%     | 90%     |
 | Aysa Javadzad         | 30%       | 10%     | 10%     |
 | Najib El Guertit      | 10%       | 10%     | 0%      |
+
 
 ### Analysis of existing API
 For our project we used the following OpenAPI:

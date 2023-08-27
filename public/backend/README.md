@@ -9,8 +9,8 @@
 | Member    | Role              | First name    | Last Name   | Person Code | Email address |
 | --        |--                 |--             | --          | --          | --            |
 | 1         | Administrator     | Mohammad      | Ala Amjadi  | -           | -             |
-| 2         | Student member    | Aysa          | Javadzad    | -           | -             |
-| 3         | Student member*   | Najib         | El Guertit  | -           | -             |
+| 2         | Member            | Aysa          | Javadzad    | -           | -             |
+| 3         | Member            | Najib         | El Guertit  | -           | -             |
 
 
 ## Links to other deliverables
@@ -113,6 +113,8 @@ The data layer and OpenAPI data model mapping is as follows:
 
 ![Logical Design](img/logical_design.png "Logical Design")
 
+> **_NOTE:_**  To connect the DB to the application, the `DATABASE_URL` key along with a value with the following format: `postgres://USER:PASSWORD@HOST:PORT/DATABASE` should be specified in the environment variables of your cloud service.
+
 
 
 ## Implementation
@@ -150,7 +152,7 @@ The node packages that were used:
 
 We used localhost testing environment for development. The environment composed by Node.js, Postgres and PGAdmin.
 
-The production environment is hosted on Render Cloud. They provide a ready to use Postgres database and a NodeJS environment.
+The production environment is hosted on Render. They provide a ready to use Postgres database and a NodeJS environment.
 
 
 ![Render Deployment](img/render-deployment.jpg "Render Deployment")
@@ -198,18 +200,15 @@ We skipped this part since we did not need to handle sessions and it was not req
 
 We used a relation database called PostgreSQL. The relation model fits good in a project were you have to manage various associations between different models. 
 
-To connect the DB to the application, the `DATABASE_URL` key along with a value with the following format: `postgres://USER:PASSWORD@HOST:PORT/DATABASE` should be specified in the environment variables of your cloud service.
-
-
 ## Other information
 
 ### Task assignment
 
 | Member                | Front-end | OpenAPI | Backend |
 | --                    |--         |--       | --      |
-| Mohammad  Ala Amjadi  | 60%       | 75%     | 90%     |
+| Mohammad  Ala Amjadi  | 60%       | 80%     | 90%     |
 | Aysa Javadzad         | 30%       | 10%     | 10%     |
-| Najib El Guertit      | 10%       | 15%     | 0%      |
+| Najib El Guertit      | 10%       | 10%     | 0%      |
 
 
 ### Analysis of existing API
