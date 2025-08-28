@@ -3,7 +3,7 @@
 var fs = require("fs"),
     path = require("path"),
     http = require("http");
-    
+
 // var oas3Tools = require('oas3-tools');
 var app = require("connect")();
 var redirect = require('connect-redirection');
@@ -24,11 +24,11 @@ var options = {
 
 // The Swagger document (require it, build it programmatically, fetch it from a URL, ...)
 var spec = fs.readFileSync(path.join(__dirname, "api/swagger.yaml"), "utf8");
-var swaggerDoc = jsyaml.safeLoad(spec);
+var swaggerDoc = jsyaml.load(spec);
 
 
 // Initialize the Swagger middleware
-swaggerTools.initializeMiddleware(swaggerDoc, function(middleware) {
+swaggerTools.initializeMiddleware(swaggerDoc, function (middleware) {
     // Interpret Swagger resources and attach metadata to request - must be first in swagger-tools middleware chain
     app.use(middleware.swaggerMetadata());
 
@@ -46,7 +46,7 @@ swaggerTools.initializeMiddleware(swaggerDoc, function(middleware) {
 
     // Backend redirections
     app.use(redirect())
-        .use(function(req, res) {
+        .use(function (req, res) {
             if (req.url == '/backend/main.html') {
                 res.redirect('/backend')
             } else if (req.url == '/docs') {
@@ -57,7 +57,7 @@ swaggerTools.initializeMiddleware(swaggerDoc, function(middleware) {
     // Start the server
     setupDataLayer()
         .then(() => {
-            http.createServer(app).listen(serverPort, function() {
+            http.createServer(app).listen(serverPort, function () {
                 console.log(
                     "Your server is listening on port %d (http://localhost:%d)",
                     serverPort,
@@ -69,7 +69,7 @@ swaggerTools.initializeMiddleware(swaggerDoc, function(middleware) {
                 );
             });
         })
-        .catch(function(error) {
+        .catch(function (error) {
             console.log("Starting DataLayer and Server failed: ", error);
         });
 });

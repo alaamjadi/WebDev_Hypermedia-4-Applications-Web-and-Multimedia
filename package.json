@@ -17,13 +17,13 @@
         "connect-redirection": "^0.0.1",
         "js-yaml": "^4.1.0",
         "knex": "^3.0.1",
-        "oas3-tools": "^2.3.0",
+        "oas3-tools": "^2.2.3",
         "pg": "^8.11.5",
         "serve-static": "^1.15.0",
-        "swagger-tools": "^0.10.4"
+        "swagger-tools": "^0.9.8"
     },
     "devDependencies": {
-        "docsify-cli": "^5.0.0",
-        "now": "^21.0.1"
+        "docsify-cli": "^4.4.2",
+        "now": "^19.1.2"
     }
 }
