@@ -1,6 +1,6 @@
 const URL = {
     ID: "/" + window.location.search.split("=")[1],
-    API: "https://milcare-association-dynamic-website.onrender.com/api",
+    API: window.location.origin + "/api",
     EVENTS: "/events",
     PERSON: "/person",
     SERVICES: "/services",
@@ -20,7 +20,7 @@ fetchEventsbyYearMonth(varYear, varMonth, true, true, false);
 
 function fetchEventsbyYearMonth(year, month, genCard, genButton, genMonth) {
     fetch(URL.API + URL.EVENTS + URL.YEAR + year + URL.MONTH + month)
-        .then(function(response) {
+        .then(function (response) {
             if (response.status !== 200) {
                 console.log("Fetch response failed. Status Code: " + response.status);
                 return Promise.reject(response);
@@ -28,20 +28,20 @@ function fetchEventsbyYearMonth(year, month, genCard, genButton, genMonth) {
                 return response.json();
             }
         })
-        .then(function(data) {
+        .then(function (data) {
             data.forEach((element) => {
                 yearSet.add(DateParser(element.event_date).year);
                 monthSet.add(DateParser(element.event_date).month_num + 1);
                 pic = JSON.parse(element.photo_address);
                 if (genCard) {
-                    document.getElementById("event_cards").innerHTML += `<div class="mb-4 d-flex justify-content-center col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4"><div class="cus_card"><a href="event.html?event_id=${element.event_id}"><div class="card shadow bg-white rounded-lg h-100"><div class="view overlay"><img class="card-img-top" src="../assets/img/${pic[0]}" alt="Event card photo ${element.event_id}"/></div><div class="card-body"><h3 class="card-title mb-0 mt-0 text-center"> ${element.event_name} </h3><p class = "card-text text-center mt-2 mb-0"> ${element.event_date.slice(0,10)} </p><p class = "card-text text-center mt-0"> ${element.event_date.slice(11,16)} </p><p class = "card-text text-center"> ${element.event_location}</p><p class = "card-text text-justify mt-1"> ${element.short_description}</p></div></div></a></div></div>`;
+                    document.getElementById("event_cards").innerHTML += `<div class="mb-4 d-flex justify-content-center col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4"><div class="cus_card"><a href="event.html?event_id=${element.event_id}"><div class="card shadow bg-white rounded-lg h-100"><div class="view overlay"><img class="card-img-top" src="../assets/img/${pic[0]}" alt="Event card photo ${element.event_id}"/></div><div class="card-body"><h3 class="card-title mb-0 mt-0 text-center"> ${element.event_name} </h3><p class = "card-text text-center mt-2 mb-0"> ${element.event_date.slice(0, 10)} </p><p class = "card-text text-center mt-0"> ${element.event_date.slice(11, 16)} </p><p class = "card-text text-center"> ${element.event_location}</p><p class = "card-text text-justify mt-1"> ${element.short_description}</p></div></div></a></div></div>`;
                 }
             });
             if (genButton) {
                 getButtons(genMonth)
             }
         })
-        .catch(function(error) {
+        .catch(function (error) {
             console.log("Fetch JS failed: ", error);
         });
 }
@@ -77,7 +77,7 @@ function filterSelection(params) {
 function getButtons(genMonth) {
     yearSet.add(9999)
 
-    yearArray = Array.from(yearSet).sort().reverse(function(a, b) { return a - b })
+    yearArray = Array.from(yearSet).sort().reverse(function (a, b) { return a - b })
     yearArray.forEach(element => {
         if (element == '9999') {
             document.getElementById("yyBtnContainer").innerHTML += `<button class="btn shadow rounded-lg mr-2 mb-3 button-size cus_btncolor" id="${element}" onclick="filterSelection('${element}')">All</button>`
@@ -92,10 +92,10 @@ function getButtons(genMonth) {
     document.getElementById("mmBtnContainer").innerHTML += `<button class="btn shadow rounded-lg mr-2 mb-3 button-size cus_btncolor" id="00" onclick="filterSelection('00')">All</button>`
 
     if (genMonth) {
-        monthArray = Array.from(monthSet).sort(function(a, b) { return a - b })
+        monthArray = Array.from(monthSet).sort(function (a, b) { return a - b })
         monthArray.forEach(element => {
-            if (element == '00') {} else {
-                document.getElementById("mmBtnContainer").innerHTML += `<button class="btn shadow rounded-lg mr-2 mb-3 button-size cus_btncolor" id="${element}" onclick="filterSelection('${element}')">${month_short[element-1]}</button>`
+            if (element == '00') { } else {
+                document.getElementById("mmBtnContainer").innerHTML += `<button class="btn shadow rounded-lg mr-2 mb-3 button-size cus_btncolor" id="${element}" onclick="filterSelection('${element}')">${month_short[element - 1]}</button>`
             }
         })
     }

@@ -1,6 +1,6 @@
 const URL = {
     ID: '/' + window.location.search.split("=")[1],
-    API: "https://milcare-association-dynamic-website.onrender.com/api",
+    API: window.location.origin + "/api",
     EVENTS: "/events",
     PERSON: "/person",
     SERVICES: "/services"
