@@ -1,8 +1,12 @@
 # Hypermedia Applications - SophisticatedKids
 
-## Deployments (updated)
+## Deployments
 
-This repository previously included references to an externally hosted deployment (Render / Heroku). The project now supports running fully locally without any external PostgreSQL server by using one of two options described below.
+## Deployment on Render
+
+[Deployment on Render](https://webdev-hypermedia-4-applications-web-and.onrender.com)
+
+The project now supports running fully locally without any external PostgreSQL server by using one of two options described below.
 
 ## Swagger generated server
 
