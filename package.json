@@ -26,5 +26,8 @@
     "devDependencies": {
         "docsify-cli": "^4.4.2",
         "now": "^19.1.2"
+    },
+    "overrides": {
+        "js-yaml@<=3.14.2": "3.14.2"
     }
 }
