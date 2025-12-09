@@ -26,5 +26,8 @@
     "devDependencies": {
         "docsify-cli": "^4.4.2",
         "now": "^19.1.2"
+    },
+    "overrides": {
+        "validator@<=13.15.22": "13.15.22"
     }
 }
