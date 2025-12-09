@@ -26,5 +26,8 @@
     "devDependencies": {
         "docsify-cli": "^4.4.2",
         "now": "^19.1.2"
+    },
+    "overrides": {
+        "body-parser@<=1.20.3": "1.20.3"
     }
 }
