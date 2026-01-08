@@ -20,7 +20,7 @@
         "oas3-tools": "^2.2.3",
         "pg": "^8.11.5",
         "pg-mem": "^3.0.5",
-        "serve-static": "^1.15.0",
+        "serve-static": "^1.16.3",
         "swagger-tools": "^0.10.4"
     },
     "devDependencies": {
